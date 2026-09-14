@@ -1,0 +1,26 @@
+{
+  "name": "projektmanagement.ghost-exe.de",
+  "version": "1.0.0",
+  "description": "The Website projektmanagment.ghost-exe.de is there to generate Project Planing Materials to your needs.",
+  "homepage": "https://github.com/Gohst101/BFI-LF6-Projekt-1---projektmanagment.ghost-exe.de#readme",
+  "bugs": {
+    "url": "https://github.com/Gohst101/BFI-LF6-Projekt-1---projektmanagment.ghost-exe.de/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gohst101/BFI-LF6-Projekt-1---projektmanagment.ghost-exe.de.git"
+  },
+  "author": "Heinke, Lars, Marvin, Keno",
+  "type": "commonjs",
+  "main": "backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node backend.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
