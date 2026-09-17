@@ -22,51 +22,51 @@
         <ul class="sidebar-nav-list" style="display: flex; flex-direction: column; height: 100%; min-height: 0;">
             <!-- Dashboard -->
             <li class="sidebar-nav-item">
-                <a href="<%= typeof serverId !== 'undefined' && serverId ? `/dashboard/${serverId}` : '/dashboard/server?info=selectServer' %>" class="sidebar-nav-link <%= (typeof currentPage !== 'undefined' && (currentPage === 'dashboard' || currentPage === 'server')) ? 'active' : '' %>">
+                <a href="/dashboard" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'dashboard' ? 'active' : '' %>">
                     <img src="/img/sidebar/dashboard.svg" alt="Dashboard" class="sidebar-nav-icon">
                     <span class="sidebar-nav-text">Dashboard</span>
                 </a>
             </li>
             <!-- Vorplanung -->
             <li class="sidebar-nav-item">
-                <a href=/planning class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'planning' ? 'active' : '' %>">
+                <a href="/planning" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'planning' ? 'active' : '' %>">
                     <img src="/icons/planning.svg" alt="Vorplanung Icon" class="sidebar-nav-icon">
                     <span class="sidebar-nav-text">Vorplanung</span>
                 </a>
             </li>
             <!-- Projektstrukturplan -->
             <li class="sidebar-nav-item">
-                <a href=/structureplan class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'structureplan' ? 'active' : '' %>">
+                <a href="/structureplan" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'structureplan' ? 'active' : '' %>">
                     <img src="/icons/structureplan.svg" alt="Structureplan Icon" class="sidebar-nav-icon">
                     <span class="sidebar-nav-text">Projektstrukturplan</span>
                 </a>
             </li>
             <!-- Balkendiagramm -->
             <li class="sidebar-nav-item">
-                <a href=/bar_chart class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'bar_chart' ? 'active' : '' %>">
+                <a href="/bar_chart" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'bar_chart' ? 'active' : '' %>">
                     <img src="/icons/bar_chart.svg" alt="Balkendiagramm Icon" class="sidebar-nav-icon">
                     <span class="sidebar-nav-text">Balkendiagramm</span>
                 </a>
             </li>
             <!-- Kostendiagramm -->
             <li class="sidebar-nav-item">
-                <a href=/cost_chart class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'cost_chart' ? 'active' : '' %>">
+                <a href="/cost_chart" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'cost_chart' ? 'active' : '' %>">
                     <img src="/icons/cost_chart.svg" alt="Kostendiagramm Icon" class="sidebar-nav-icon">
                     <span class="sidebar-nav-text">Kostendiagramm</span>
                 </a>
             </li>
             <!-- Netzplan -->
             <li class="sidebar-nav-item">
-                <a href=/network_plan class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'network_plan' ? 'active' : '' %>">
+                <a href="/network_plan" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'network_plan' ? 'active' : '' %>">
                     <img src="/icons/network_plan.svg" alt="Netzplan Icon" class="sidebar-nav-icon">
                     <span class="sidebar-nav-text">Netzplan</span>
                 </a>
             </li>
 
-            <!-- Bottom: Bot Personalisieren, Einstellungen, Donate -->
+            <!-- Bottom: Einstellungen, Logout -->
             <div style="flex:1 1 auto;"></div>
             <li class="sidebar-nav-item">
-                <a href="<%= class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'settings' ? 'active' : '' %>">
+                <a href="/user/settings" class="sidebar-nav-link" <%= typeof currentPage !== 'undefined' && currentPage === 'settings' ? 'active' : '' %>
                     <img src="/img/sidebar/settings.svg" alt="Einstellungen" class="sidebar-nav-icon">
                     <span class="sidebar-nav-text">Einstellungen</span>
                 </a>
