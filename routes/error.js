@@ -1,7 +1,7 @@
 function registerErrorHandlers(app) {
 	// 404 - Error Handler
 	app.use((req, res) => {
-        console.error('[ERROR HANDLER] Page not found:')
+        console.error('[ERROR HANDLER] Page not found:', req.path)
 		res.status(404).render('error/404', {
 			requestedPath: req.path,
 			user: req.user || null
