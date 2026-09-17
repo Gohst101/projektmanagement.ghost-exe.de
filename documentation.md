@@ -1,10 +1,10 @@
 API Routes:
 
 Register:
-/api/auth/register
+/auth/register
 
 Login:
-/api/auth/login
+/auth/login
 
 
 

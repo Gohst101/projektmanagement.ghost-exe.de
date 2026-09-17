@@ -1,0 +1,22 @@
+:root {
+    /* Texte */
+    --main-text-color: #ffffff;
+    --sub-text-color: #C0C0C0;
+    --error-text-color: #a10000;
+    --success-text-color: #25a900;
+
+    /* Box Farben */
+    --main-background-color: #0B1220;
+    --box-background-color: #19212C;
+
+
+    /* Button */
+    --button-blue-color: #1B5FFA;
+
+    /* Box Stroke */
+    --box-stroke-color: #4F5967;
+
+    /* Icon Colors */
+    --icon-active-color: #ffffff;
+    --icon-inactive-color: #C0C0C0;
+}
