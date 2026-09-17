@@ -6,43 +6,46 @@
     <title>Project Planing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="register.css">
 </head>
 <body>
-    <%- include('../partials/navbar') %>
+   <nav class="navbar"> <%- include('../partials/navbar') %></nav>
+     <div class="register-box">
+        <h1>Neues Konto erstellen</h1>
+            <form action="register.css" method="POST">
 
-    <div class="form_container">
-        <div class="form_value">
-            <form action="/auth/register" method="post">
-                <h2>Konto erstellen</h2>
-                
-                <div class="inputbox">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username" required placeholder="Your username">
-                </div>
+            <div class="inputbox-Benutzername">
+                <label for="username">Benutzername</label>
+                  <input type ="text" id="username" name="username" placeholder="Benutzername" required>
+            </div>
 
-                <div class="inputbox">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" required placeholder="you@example.com">
-                </div>
 
-                <div class="inputbox">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" required placeholder="********">
-                </div>
+            <div class="inputbox-email">
+                <label for="email">E-Mail</label>
+                  <input type ="email" id="email" name="email" placeholder="maxmusterman@gmail.com" required>
+            </div>
 
-                <div class="inputbox">
-                    <label for="password_confirm">Password Confirm</label>
-                    <input type="password" name="password_confirm" id="password_confirm" required placeholder="********">
-                </div>
+           <div class="inputbox-password">       
+                <label for="password">Passwort</label>
+                <input type="password" id="password" name="password" placeholder="********" required>
+           </div>
 
-                <button type="submit">Registrieren</button>
-
-                <div class="link">
-                    <p>Already have an account? <a href="/login">Login</a></p>
-                </div>
+           <div class="inputbox-password_wiederholen">       
+                <label for="password_confirm">Passwort bestätigen</label>
+                <input type="password" id="password_confirm" name="password_confirm" placeholder="********" required>
+           </div>
+        
+           <div class="submit-section">
+                <button type="submit">Anmelden</button>
+           </div>
             </form>
-        </div>
+
+        <p>
+            Schon registriert?
+            <a href="login.html">Zum Login</a>
+        </p>
+
     </div>
+
 </body>
 </html>
