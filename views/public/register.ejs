@@ -6,13 +6,13 @@
     <title>Project Planing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="/css/public/register.css">
 </head>
 <body>
    <nav class="navbar"> <%- include('../partials/navbar') %></nav>
      <div class="register-box">
         <h1>Neues Konto erstellen</h1>
-            <form action="register.css" method="POST">
+            <form action="/auth/register" method="POST">
 
             <div class="inputbox-Benutzername">
                 <label for="username">Benutzername</label>
@@ -42,7 +42,7 @@
 
         <p>
             Schon registriert?
-            <a href="login.html">Zum Login</a>
+            <a href="/login">Zum Login</a>
         </p>
 
     </div>
