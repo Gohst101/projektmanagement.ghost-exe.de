@@ -15,5 +15,8 @@
 
     /* Box Stroke */
     --box-stroke-color: #4F5967;
-    
+
+    /* Icon Colors */
+    --icon-active-color: #ffffff;
+    --icon-inactive-color: #C0C0C0;
 }
