@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Planing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+
+    <div class="form_container">
+        <div class="form_value">
+            <form action="/api/auth/register" method="POST">
+                <h2>Konto erstellen</h2>
+                
+                <div class="inputbox">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" required placeholder="Your username">
+                </div>
+
+                <div class="inputbox">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required placeholder="you@example.com">
+                </div>
+
+                <div class="inputbox">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required placeholder="********">
+                </div>
+
+                <div class="inputbox">
+                    <label for="password_confirm">Password Confirm</label>
+                    <input type="password_confirm" name="password_confirm" id="password_confirm" required placeholder="********">
+                </div>
+
+                <button type="submit">Registrieren</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
