@@ -6,37 +6,40 @@
     <title>Project Planing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/public/login.css">
 </head>
 <body>
     <%- include('../partials/navbar') %>
 
-    <section>
-        <div class="form_container">
-            <div class="form-value">
-                <form action="/login" method="POST">
-                    <h2>Sign in to your account</h2>
-                    <div class="inputbox">
-                        <label for="email">Your Email</label>
-                        <input type="email" name="email" id="email" required placeholder="you@example.com">
-                    </div>
-                    <div class="inputbox">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" required placeholder="********">
-                    </div>
-                    <div class="remember">
-                        <label for="remember_me">
-                            <input type="checkbox" name="remember" id="remember_me">
-                            Remember me
-                        </label>
-                    </div>
-                    <button type="submit">Sign in</button>
-                    <div class="register">
-                        <p>Don't have an account yet? <a href="/register">Register</a></p>
-                    </div>
-                </form>
-            </div>
+    <div class="form_container">
+        <div class="form_value">
+            <form action="/api/auth/login" method="POST">
+                <h2>Sign in to your account</h2>
+                
+                <div class="inputbox">
+                    <label for="email">Your Email</label>
+                    <input type="email" name="email" id="email" required placeholder="you@example.com">
+                </div>
+
+                <div class="inputbox">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required placeholder="********">
+                </div>
+
+                <div class="remember">
+                    <label for="remember_me">
+                        <input type="checkbox" name="remember" id="remember_me">
+                        Remember me
+                    </label>
+                </div>
+
+                <button type="submit">Sign in</button>
+                
+                <div class="register">
+                    <p>Don't have an account yet? <a href="/register">Register</a></p>
+                </div>
+            </form>
         </div>
-    </section>
+    </div>
 </body>
 </html>
