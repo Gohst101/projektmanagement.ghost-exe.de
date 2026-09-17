@@ -4,12 +4,24 @@ const https = require('https')
 const path = require('path')
 const fs = require('fs')
 const pem = require('pem')
+const pool = require('./database/connection/connection.js')
 require('dotenv').config()
 
 // .env Variables
 const PORT = process.env.PORT
+const FORCE_DB = String(process.env.FORCE_DB).toLowerCase() === 'true'
 const SESSION_SECRET = process.env.SESSION_SECRET
 console.log(`[STARTUP] Starting Website on ${PORT}`)
+
+// Check database if needed
+if(FORCE_DB) {
+	console.log('[Startup Process] DB Check..')
+	pool.verifyDatabaseConnection()
+} else {
+	console.log('[Startup Process] Skip DB Check')
+}
+
+
 
 // App Port
 // Der Port auf dem die Website vom Server aus erreichbar sein wird.

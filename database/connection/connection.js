@@ -14,22 +14,20 @@ const pool = mysql.createPool({
     enableKeepAlive: true,
     keepAliveInitialDelay: 10000,
     connectTimeout: 60000,
-    ssl: sslConfig,
-});
+})
 
 async function verifyDatabaseConnection() {
-    const connection = await pool.getConnection();
+    const connection = await pool.getConnection()
 
     try {
-        await connection.query("SELECT 1");
+        await connection.query("SELECT 1")
         return true;
     } catch (error) {
-        throw error;
+        throw error
     } finally {
-        connection.release();
+        connection.release()
     }
 }
-
 
 module.exports = pool
 module.exports.verifyDatabaseConnection = verifyDatabaseConnection
