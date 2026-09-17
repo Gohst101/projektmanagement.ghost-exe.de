@@ -13,7 +13,7 @@
 
     <div class="form_container">
         <div class="form_value">
-            <form action="/api/auth/register" method="POST">
+            <form action="/auth/register" method="post">
                 <h2>Konto erstellen</h2>
                 
                 <div class="inputbox">
@@ -33,10 +33,14 @@
 
                 <div class="inputbox">
                     <label for="password_confirm">Password Confirm</label>
-                    <input type="password_confirm" name="password_confirm" id="password_confirm" required placeholder="********">
+                    <input type="password" name="password_confirm" id="password_confirm" required placeholder="********">
                 </div>
 
                 <button type="submit">Registrieren</button>
+
+                <div class="link">
+                    <p>Already have an account? <a href="/login">Login</a></p>
+                </div>
             </form>
         </div>
     </div>

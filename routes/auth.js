@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
-require('dotenv').config()
+const pool = require("../database/connection/connection.js")
 const bcrypt = require("bcryptjs")
+require('dotenv').config()
 
 // Register
 app.post("/auth/register", async (req, res) => {
@@ -52,7 +53,7 @@ app.post("/auth/login", async (req, res) => {
     // Gibt es die Email überhaupt?
     try {
         const [data] = await pool.query("SELECT email FROM users WHERE email = ?", [email]) // Datenbankabfrage
-        if( data.length === 0 ) { // Wenn null dann gibt es diese email nicht (keine daten)
+        if(data.length === 0) { // Wenn null dann gibt es diese email nicht (keine daten)
             res.render('public/login', { // Rendere die Login Page
                 error: "Falscher Login" // Gebe der Login page die Variable error mit folgendem Wert mit (Wir sagen nur Falscher Login da wir nicht sagen wollen ob es die email oder das passwort war was falsch war)
             })

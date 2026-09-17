@@ -1,5 +1,6 @@
 // Imports
 const express = require('express')
+const session = require('express-session')
 const https = require('https')
 const path = require('path')
 const fs = require('fs')
@@ -26,6 +27,19 @@ if(FORCE_DB) {
 // App Port
 // Der Port auf dem die Website vom Server aus erreichbar sein wird.
 const app = express()
+// parse application/json
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+
+// Express Session
+app.use(session({
+    secret: `${SESSION_SECRET}`,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24
+    }
+}))
 
 // Routes
 // Importieren der Routen-Module
