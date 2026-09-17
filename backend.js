@@ -9,19 +9,44 @@ require('dotenv').config()
 // .env Variables
 const PORT = process.env.PORT
 const SESSION_SECRET = process.env.SESSION_SECRET
-console.log(`GitHub URL: ${process.env.GITHUB}`)
 console.log(`[STARTUP] Starting Website on ${PORT}`)
 
 // App Port
+// Der Port auf dem die Website vom Server aus erreichbar sein wird.
 const app = express()
 
-// Set EJS as View Engine
+// Routes
+// Importieren der Routen-Module
+const redirects = require('./routes/redirects')
+const privateRoutes = require('./routes/private')
+const publicRoutes = require('./routes/public')
+const authRoutes = require('./routes/auth')
+const { registerErrorHandlers } = require('./routes/error')
+
+// View Engine (EJS Templates)
+// EJS ist eine Template-Engine, die wir nutzen um in den HTML Dateien daten anzuzeigen.
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
-app.get("/", (req, res) => {
-    res.send("Projektmanagement läuft!")
-})
+// Static Files
+// Hier werden die statischen Dateien wie CSS, JS, Bilder usw. bereitgestellt.
+app.use('/css', express.static(path.join(__dirname, 'assets/css')))
+app.use('/js', express.static(path.join(__dirname, 'assets/js')))
+app.use('/img', express.static(path.join(__dirname, 'assets/img')))
+app.use('/themes', express.static(path.join(__dirname, 'assets/themes')))
+app.use('/icons', express.static(path.join(__dirname, 'assets/media/icons')))
+app.use('/images', express.static(path.join(__dirname, 'assets/media/images')))
+app.use('/videos', express.static(path.join(__dirname, 'assets/media/videos')))
+
+// Routes
+// Hier werden die Routen-Module in die App eingebunden, sodass die definierten Routen erreichbar sind.
+app.use(redirects)
+app.use(publicRoutes)
+app.use(privateRoutes)
+app.use(authRoutes)
+registerErrorHandlers(app)
+
+
 
 // Calling Start Server Function
 console.log(`[Startup Process] ⏳ Starting Website..`)
