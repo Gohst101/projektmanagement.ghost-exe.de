@@ -1,21 +1,82 @@
-<div class="Sidebar">
-        <h2>Sidebar</h2>
-            <div class="Sidebar_Buttons">
-                <a href="/dashboard.ejs">Dashboard</a>
-            </div>
-            <div class="Sidebar_Buttons">
-                <a href="/planning.ejs">Planning</a>
-            </div>
-            <div class="Sidebar_Buttons">
-                <a href="/strucktureplan.ejs">Strukturplan</a>
-            </div>
-            <div class="Sidebar_Buttons">
-                <a href="/balkendiagramm.ejs">Balkendiagramm</a>
-            </div>
-            <div class="Sidebar_Buttons">
-                <a href="/kostendiagramm.ejs">Kostendiagramm</a>
-            </div>
-            <div class="Sidebar_Buttons">
-                <a href="/netzplan.ejs">Netzplan</a>
-            </div>
+<link rel="stylesheet" href="/css/partials/overlay.css">
+
+<!-- Top Navbar -->
+<nav class="top-navbar">
+    <a href="/" class="logo-section">
+        <img src="/images/logo.png" alt="Logo">
+        <h1>Projektplanung</h1>
+    </a>
+    
+    <!-- Navigation Links -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <div class="nav-container" id="nav-container">
+        <!--<h1 class="navbar-notification">Beta Version - You may find bugs!</h1>-->
     </div>
+</nav>
+
+
+<!-- Sidebar -->
+<aside class="sidebar-private">
+    <!-- Navigation Menu -->
+    <nav class="sidebar-nav">
+        <ul class="sidebar-nav-list" style="display: flex; flex-direction: column; height: 100%; min-height: 0;">
+            <!-- Dashboard -->
+            <li class="sidebar-nav-item">
+                <a href="/dashboard" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'dashboard' ? 'active' : '' %>">
+                    <img src="/icons/dashboard.svg" alt="Dashboard" class="sidebar-nav-icon">
+                    <span class="sidebar-nav-text">Dashboard</span>
+                </a>
+            </li>
+            <!-- Vorplanung -->
+            <li class="sidebar-nav-item">
+                <a href="/planning" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'planning' ? 'active' : '' %>">
+                    <img src="/icons/planning.svg" alt="Vorplanung Icon" class="sidebar-nav-icon">
+                    <span class="sidebar-nav-text">Vorplanung</span>
+                </a>
+            </li>
+            <!-- Projektstrukturplan -->
+            <li class="sidebar-nav-item">
+                <a href="/structureplan" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'structureplan' ? 'active' : '' %>">
+                    <img src="/icons/structureplan.svg" alt="Structureplan Icon" class="sidebar-nav-icon">
+                    <span class="sidebar-nav-text">Projektstrukturplan</span>
+                </a>
+            </li>
+            <!-- Balkendiagramm -->
+            <li class="sidebar-nav-item">
+                <a href="/bar_chart" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'bar_chart' ? 'active' : '' %>">
+                    <img src="/icons/bar_chart.svg" alt="Balkendiagramm Icon" class="sidebar-nav-icon">
+                    <span class="sidebar-nav-text">Balkendiagramm</span>
+                </a>
+            </li>
+            <!-- Kostendiagramm -->
+            <li class="sidebar-nav-item">
+                <a href="/cost_chart" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'cost_chart' ? 'active' : '' %>">
+                    <img src="/icons/cost_chart.svg" alt="Kostendiagramm Icon" class="sidebar-nav-icon">
+                    <span class="sidebar-nav-text">Kostendiagramm</span>
+                </a>
+            </li>
+            <!-- Netzplan -->
+            <li class="sidebar-nav-item">
+                <a href="/network_plan" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'network_plan' ? 'active' : '' %>">
+                    <img src="/icons/network_plan.svg" alt="Netzplan Icon" class="sidebar-nav-icon">
+                    <span class="sidebar-nav-text">Netzplan</span>
+                </a>
+            </li>
+
+            <!-- Bottom: Einstellungen, Logout -->
+            <div style="flex:1 1 auto;"></div>
+            <li class="sidebar-nav-item">
+                <a href="/user/settings" class="sidebar-nav-link" <%= typeof currentPage !== 'undefined' && currentPage === 'settings' ? 'active' : '' %>
+                    <img src="/img/sidebar/settings.svg" alt="Einstellungen" class="sidebar-nav-icon">
+                    <span class="sidebar-nav-text">Einstellungen</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="/auth/logout" class="sidebar-nav-link">
+                    <img src="/img/sidebar/logout.svg" alt="Donate" class="sidebar-nav-icon">
+                    <span class="sidebar-nav-text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>
