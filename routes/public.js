@@ -4,6 +4,8 @@ require('dotenv').config()
 
 const LITTLE_DEV_GHOST_DISCORD_CODE = process.env.LITTLE_DEV_GHOST_DISCORD_CODE
 const SHADOW_DISCORD_CODE = process.env.SHADOW_DISCORD_CODE
+const HIGHER_BIT_DISCORD_CODE = process.env.HIGHER_BIT_DISCORD_CODE
+const ITS_JUST_CYRO_DISCORD_CODE = process.env.ITS_JUST_CYRO_DISCORD_CODE
 
 // Homepage
 router.get('/homepage', async(req, res) => {
@@ -31,7 +33,7 @@ router.get('/login', (req, res) => {
 // Discord Profile Links
 router.get('/.well-known/discord', (req, res) => {
   res.type('text/plain')
-  res.send(`${LITTLE_DEV_GHOST_DISCORD_CODE}\n${SHADOW_DISCORD_CODE}`)
+  res.send(`${LITTLE_DEV_GHOST_DISCORD_CODE}\n${SHADOW_DISCORD_CODE}\n${HIGHER_BIT_DISCORD_CODE}\n${ITS_JUST_CYRO_DISCORD_CODE}`)
 })
 
 module.exports = router
