@@ -1,5 +1,9 @@
 const express = require('express')
 const router = express.Router()
+require('dotenv').config()
+
+const LITTLE_DEV_GHOST_DISCORD_CODE = process.env.LITTLE_DEV_GHOST_DISCORD_CODE
+const SHADOW_DISCORD_CODE = process.env.SHADOW_DISCORD_CODE
 
 // Homepage
 router.get('/homepage', async(req, res) => {
@@ -22,6 +26,12 @@ router.get('/login', (req, res) => {
   res.render('public/login', {
     error: null
   })
+})
+
+// Discord Profile Links
+router.get('/.well-known/discord', (req, res) => {
+  res.type('text/plain')
+  res.send(`${LITTLE_DEV_GHOST_DISCORD_CODE}\n${SHADOW_DISCORD_CODE}`)
 })
 
 module.exports = router
