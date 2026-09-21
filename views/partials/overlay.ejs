@@ -26,6 +26,9 @@
                     <span class="sidebar-nav-text">Dashboard</span>
                 </a>
             </li>
+
+            <div class="sidebar-nav-divider sidebar-nav-divider-top" aria-hidden="true"></div>
+
             <!-- Vorplanung -->
             <li class="sidebar-nav-item">
                 <a href="/planning" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'planning' ? 'active' : '' %>">
@@ -62,20 +65,26 @@
                 </a>
             </li>
 
-            <!-- Bottom: Einstellungen, Logout -->
-            <div style="flex:1 1 auto;"></div>
-            <li class="sidebar-nav-item">
-                <a href="/user/settings" class="sidebar-nav-link" <%= typeof currentPage !== 'undefined' && currentPage === 'settings' ? 'active' : '' %>
-                    <img src="/img/sidebar/settings.svg" alt="Einstellungen" class="sidebar-nav-icon">
-                    <span class="sidebar-nav-text">Einstellungen</span>
-                </a>
+            <li class="sidebar-nav-divider-item" aria-hidden="true">
+                <div class="sidebar-nav-divider"></div>
             </li>
-            <li class="sidebar-nav-item">
-                <a href="/auth/logout" class="sidebar-nav-link">
-                    <img src="/img/sidebar/logout.svg" alt="Donate" class="sidebar-nav-icon">
-                    <span class="sidebar-nav-text">Logout</span>
-                </a>
-            </li>
+
+            <div class="sidebar-nav-section sidebar-nav-section-bottom">
+                <!-- Bottom: Einstellungen, Logout -->
+                <div style="flex:1 1 auto;"></div>
+                <li class="sidebar-nav-item">
+                    <a href="/user/settings" class="sidebar-nav-link" <%= typeof currentPage !== 'undefined' && currentPage === 'settings' ? 'active' : '' %>
+                        <img src="/icons/settings.svg" alt="Einstellungen" class="sidebar-nav-icon">
+                        <span class="sidebar-nav-text">Einstellungen</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="/auth/logout" class="sidebar-nav-link">
+                        <img src="/icons/logout.svg" alt="Logout" class="sidebar-nav-icon">
+                        <span class="sidebar-nav-text">Abmelden</span>
+                    </a>
+                </li>
+            </div>
         </ul>
     </nav>
 </aside>
