@@ -1,11 +1,5 @@
-/**
- * Overlay (Navbar + Sidebar) - Ghost.exe Website
- * Kombinierte Navigation und Sidebar
- */
-
 @import url('/themes/root.css');
 
-/* ===== GLOBAL STYLES ===== */
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +16,7 @@ body {
   background-color: var(--main-background-color);
 }
 
-/* ===== TOP NAVBAR ===== */
+/* NavBar */
 .top-navbar {
   background-color: var(--box-background-color);
   backdrop-filter: blur(40px);
@@ -60,7 +54,7 @@ body {
     margin: 0;
 }
 
-/* Right Navigation */
+/* Right Navigation
 .nav-right {
     display: flex;
     align-items: center;
@@ -77,90 +71,9 @@ body {
     align-items: center;
     margin-right: 0px;
 }
+*/
 
-/* Avatar */
-.nav-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-left: 1rem;
-  margin-right: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  border: 2px solid var(--main-text-color);
-  background: var(--sub-text-color);
-  vertical-align: middle;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.nav-avatar:hover {
-  transform: scale(1.05);
-  border-color: var(--sub-text-color);
-}
-
-/* Flag */
-.nav-flag {
-  border-color: transparent;
-  height: 28px;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
-}
-
-/* Profile Dropdown */
-.profile-dropdown {
-  position: absolute;
-  top: 80px;
-  right: 16px;
-  min-width: 170px;
-  background: var(--sub-box-background-color);
-  border-radius: 8px;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.5);
-  padding: 0.5rem;
-  z-index: 2000;
-  border: 1px solid var(--box-stroke-color);
-  animation: fadeInMenu 0.18s;
-}
-
-.profile-dropdown ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.profile-dropdown ul li {
-  margin: 0.2rem 0;
-}
-
-.profile-dropdown ul li a {
-  display: block;
-  color: var(--main-text-color);
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  padding: 0.6rem 0.8rem;
-  border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
-}
-
-.profile-dropdown ul li a:hover {
-  background: var(--sub-background-color);
-  color: var(--main-text-color);
-}
-
-@keyframes fadeInMenu {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  } to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== SIDEBAR ===== */
+/* Sidebar */
 .sidebar-private {
   width: 250px;
   height: calc(100vh - 90px);
@@ -259,6 +172,19 @@ body {
   font-size: 15px;
   font-weight: 500;
   color: var(--main-text-color);
+}
+
+.sidebar-nav-divider {
+  width: var(--nav-devider-width);
+  display: block;
+  margin: 0 0 var(--nav-devider-gap);
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.sidebar-nav-divider-top {
+  width: var(--nav-devider-width);
+  display: block;
+  margin: 0 0 var(--nav-devider-gap);
 }
 
 /* Placeholder tile style */
