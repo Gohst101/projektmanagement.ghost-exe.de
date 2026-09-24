@@ -13,10 +13,10 @@
     <%- include('../partials/overlay') %>    
 
     <div class="cost_chart_workers">
-        <canvas id="cost_chart_workers"></canvas>
+        <canvas id="cost_chart_workers" class="cost_chart_workers_c"></canvas>
     </div>
     <div class="cost_chart">
-        <canvas id="cost_chart"></canvas>
+        <canvas id="cost_chart" class="cost_chart_c"></canvas>
     </div>
 
     <!-- script to load the cost chart data from the database and create the charts -->
@@ -40,7 +40,7 @@
                 datasets: [{
                     label: 'Arbeitszeitraum (Start- und Endtag)',
                     data: zeitachseData, // Data for the y-axis
-                    backgroundColor: '#19212C',
+                    backgroundColor: '#006DFB',
                     borderColor: '#FFFFFF',
                     borderWidth: 1
                 }]
@@ -67,7 +67,7 @@
                 datasets: [{
                     label: 'Löhne',
                     data: kostenData, // Data for the y-axis
-                    backgroundColor: '#19212C',
+                    backgroundColor: '#006DFB',
                     borderColor: '#FFFFFF',
                     borderWidth: 1
                 }]
