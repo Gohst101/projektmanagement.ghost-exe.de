@@ -17,16 +17,6 @@ body {
   background: var(--main-background-color);
 }
 
-html.sidebar-mobile-open,
-body.sidebar-mobile-open {
-  overflow: hidden !important;
-  height: 100%;
-}
-
-body.sidebar-mobile-open {
-  overscroll-behavior: none;
-}
-
 /* NavBar */
 .top-navbar {
   background-color: var(--box-background-color);
@@ -42,7 +32,7 @@ body.sidebar-mobile-open {
   left: 0;
   right: 0;
   z-index: 1000;
-  height: 70px;
+  height: 60px;
   border-bottom: 1px solid var(--box-stroke-color);
 }
 
@@ -59,21 +49,21 @@ body.sidebar-mobile-open {
 }
 
 .logo-section h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: var(--logo-text-color);
+    color: var(--main-text-color);
     margin: 0;
 }
 
 /* ===== SIDEBAR ===== */
 .sidebar-private {
   width: 290px;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 60px);
   background: var(--box-background-color);
   border-right: 1px solid var(--box-stroke-color);
   position: fixed;
   left: 0;
-  top: 70px;
+  top: 60px;
   display: flex;
   flex-direction: column;
   z-index: 999;
