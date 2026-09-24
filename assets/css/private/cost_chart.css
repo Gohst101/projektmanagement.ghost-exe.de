@@ -1,0 +1,62 @@
+/* Main styles */
+body {
+    min-height: 100vh;
+
+    background-color: #080f1c;
+
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* Diagram divbox styles */
+
+.cost_chart_workers {
+    width: 80%;
+    max-width: auto;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: right;
+
+    background-color: #19212C;
+
+    border: 1px solid #4F5967;
+    border-radius: 9px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.cost_chart{
+    width: 80%;
+    max-width: auto;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: right;
+
+    background-color: #19212C;
+
+    border: 1px solid #4F5967;
+    border-radius: 9px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Chart styles */
+.cost_chart_workers_c {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: right;
+
+    background-color: #19212C;
+}
+
+.cost_chart_c {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: right;
+
+    background-color: #19212C;
+}
