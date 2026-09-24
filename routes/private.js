@@ -8,8 +8,12 @@ router.get('/dashboard', requireAuth, async (req, res) => {
     console.log(req.session)
 
     // Get Projects
-    const [projects] = await pool.query("SELECT * FROM projects WHERE userId = ?", [req.session.user.userId])
-    console.log(projects)
+    const [projects] = await pool.query("SELECT * FROM projects WHERE userId = ?", [req.session.user.userId])    
+    projects.forEach(project => {
+        project.tasks = JSON.parse(project.tasks).tasks
+    })
+
+    console.log("Project Data:", JSON.stringify(projects, null, 2))
 
     res.render("private/dashboard", {
         userId: req.session.user.userId,
@@ -23,33 +27,43 @@ router.get('/dashboard', requireAuth, async (req, res) => {
 // Vorplan
 router.get('/planning', requireAuth, async (req, res) => {
     console.log(req.session)
+    const projectId = req.params.id
 
-    // Get Projects
-    const [projects] = await pool.query("SELECT * FROM projects WHERE userId = ?", [req.session.user.userId])
-    console.log(projects)
+    // Get specefic Project data
+    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId], [projectId])
+    project.forEach(project => {
+        project.tasks = JSON.parse(project.tasks).tasks
+    })
+
+    console.log("Project Data:", JSON.stringify(project, null, 2))
 
     res.render("private/planning", {
         userId: req.session.user.userId,
         username: req.session.user.username,
         email: req.session.user.email,
-        projects: projects,
+        project: project,
         currentPage: 'planning'
     })
 })
 
 // Struckturplan
-router.get('/structureplan', requireAuth, async (req, res) => {
+router.get('/structureplan/:id', requireAuth, async (req, res) => {
     console.log(req.session)
+    const projectId = req.params.id
 
-    // Get Projects
-    const [projects] = await pool.query("SELECT * FROM projects WHERE userId = ?", [req.session.user.userId])
-    console.log(projects)
+    // Get specefic Project data
+    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId], [projectId])
+    project.forEach(project => {
+        project.tasks = JSON.parse(project.tasks).tasks
+    })
+
+    console.log("Project Data:", JSON.stringify(project, null, 2))
 
     res.render("private/structureplan", {
         userId: req.session.user.userId,
         username: req.session.user.username,
         email: req.session.user.email,
-        projects: projects,
+        project: project,
         currentPage: 'structureplan'
     })
 })
@@ -57,16 +71,21 @@ router.get('/structureplan', requireAuth, async (req, res) => {
 // Balkendiagramm
 router.get('/bar_chart', requireAuth, async (req, res) => {
     console.log(req.session)
+    const projectId = req.params.id
 
-    // Get Projects
-    const [projects] = await pool.query("SELECT * FROM projects WHERE userId = ?", [req.session.user.userId])
-    console.log(projects)
+    // Get specefic Project data
+    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId], [projectId])
+    project.forEach(project => {
+        project.tasks = JSON.parse(project.tasks).tasks
+    })
+
+    console.log("Project Data:", JSON.stringify(project, null, 2))
 
     res.render("private/bar_chart", {
         userId: req.session.user.userId,
         username: req.session.user.username,
         email: req.session.user.email,
-        projects: projects,
+        project: project,
         currentPage: 'bar_chart'
     })
 })
@@ -74,16 +93,21 @@ router.get('/bar_chart', requireAuth, async (req, res) => {
 // Kostendiagramm
 router.get('/cost_chart', requireAuth, async (req, res) => {
     console.log(req.session)
+    const projectId = req.params.id
 
-    // Get Projects
-    const [projects] = await pool.query("SELECT * FROM projects WHERE userId = ?", [req.session.user.userId])
-    console.log(projects)
+    // Get specefic Project data
+    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId], [projectId])
+    project.forEach(project => {
+        project.tasks = JSON.parse(project.tasks).tasks
+    })
+
+    console.log("Project Data:", JSON.stringify(project, null, 2))
 
     res.render("private/cost_chart", {
         userId: req.session.user.userId,
         username: req.session.user.username,
         email: req.session.user.email,
-        projects: projects,
+        project: project,
         currentPage: 'cost_chart'
     })
 })
@@ -91,16 +115,21 @@ router.get('/cost_chart', requireAuth, async (req, res) => {
 // Netzplan
 router.get('/network_plan', requireAuth, async (req, res) => {
     console.log(req.session)
+    const projectId = req.params.id
 
-    // Get Projects
-    const [projects] = await pool.query("SELECT * FROM projects WHERE userId = ?", [req.session.user.userId])
-    console.log(projects)
+    // Get specefic Project data
+    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId], [projectId])
+    project.forEach(project => {
+        project.tasks = JSON.parse(project.tasks).tasks
+    })
+
+    console.log("Project Data:", JSON.stringify(project, null, 2))
 
     res.render("private/network_plan", {
         userId: req.session.user.userId,
         username: req.session.user.username,
         email: req.session.user.email,
-        projects: projects,
+        project: project,
         currentPage: 'network_plan'
     })
 })

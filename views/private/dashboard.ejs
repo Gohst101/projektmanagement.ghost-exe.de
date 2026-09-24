@@ -19,21 +19,16 @@
         <div class="project-create-box">
             <img src="/icons/plus.svg" alt="Create Project">
         </div>
-        <div class="project-box">
-            <h1 class="project-title">BFI LF6 Projekt 2</h1>
-            <p class="project-description">Schulprojekt verngesteuertes Auto selber Bauen.</p>
-            <div class="project-stats">
-                <p class="project-processes">7 Vorgänge</p>
-                <p class="project-creation-date">16.09.2026</p>
+
+        <% projects.forEach(project => { %>
+            <div class="project-box">
+                <h1 class="project-title"><%= project.title %></h1>
+                <p class="project-description"><%= project.description || 'Keine Beschreibung vorhanden.' %></p>
+                <div class="project-stats">
+                    <p class="project-processes"><%= project.tasks.length %> Vorgänge</p>
+                    <p class="project-creation-date"><%= new Date(project.created_at).toLocaleDateString('de-DE') %></p>
+                </div>
             </div>
-        </div>
-        <div class="project-box">
-            <h1 class="project-title">BFI LF6 Projekt 1</h1>
-            <p class="project-description">Zarbombe.</p>
-            <div class="project-stats">
-                <p class="project-processes">12 Vorgänge</p>
-                <p class="project-creation-date">12.08.2026</p>
-            </div>
-        </div>
+        <% }) %>
     </div>
 </body>
