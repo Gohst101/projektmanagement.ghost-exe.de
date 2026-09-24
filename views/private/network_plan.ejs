@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Planing</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/private/network_plan.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Planing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/private/network_plan.css">
 </head>
-
 <body>
     <%- include('../partials/overlay') %>
 
-    <div class="Legende">
+    <div class="legend">
         <table>
             <thead>
                 <tr>
@@ -23,37 +20,37 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="legende_1">•Ablauf</td>
-                    <td class="legende_2">•Ablauf Nr.</td>
-                    <td class="legende_3">•Dauer</td>
-                    <td class="legende_4">•Vorwärtsrechnung</td> 
+                    <td class="legend-1">•Ablauf</td>
+                    <td class="legend-2">•Ablauf Nr.</td>
+                    <td class="legend-3">•Dauer</td>
+                    <td class="legend-4">•Vorwärtsrechnung</td> 
                 </tr>
                 <tr>
-                    <td class="legende_5">•Kritischer Vorgang</td>
-                    <td class="legende_6">•Vorwärtsrechnung</td>
-                    <td class="legende_7">•Rückwärtsrechnung</td> 
+                    <td class="legend-5">•Kritischer Vorgang</td>
+                    <td class="legend-6">•Vorwärtsrechnung</td>
+                    <td class="legend-7">•Rückwärtsrechnung</td> 
                 </tr>
                 <tr>
-                    <td class="legende_8">•Gesamt Puffer</td>
+                    <td class="legend-8">•Gesamt Puffer</td>
                 </tr>
             </tbody>
         </table>
     </div> 
     
-    <div class="Content_Network_Plan">
+    <div class="content-network-plan">
         <table>
-            <tbody id="networkPlanTableBody">
+            <tbody id="network-plan-table-body">
                 <tr>
-                    <td class="network_plan">Vorwärtsrechnung</td>
-                    <td class="network_plan">Vorwärtsrechnung</td>
+                    <td class="network-plan">Vorwärtsrechnung</td>
+                    <td class="network-plan">Vorwärtsrechnung</td>
                 </tr>
                 <tr>
-                    <td class="network_plan">Ablauf Nr.</td>
-                    <td class="network_plan">Dauer</td>
+                    <td class="network-plan">Ablauf Nr.</td>
+                    <td class="network-plan">Dauer</td>
                 </tr>
                 <tr>
-                    <td class="network_plan">Rückwärtsrechnung</td>
-                    <td class="network_plan">Rückwärtsrechnung</td>
+                    <td class="network-plan">Rückwärtsrechnung</td>
+                    <td class="network-plan">Rückwärtsrechnung</td>
                 </tr>        
                     <!-- Table infos will be dynamically filled to display network plan data -->
             </tbody>
