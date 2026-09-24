@@ -11,48 +11,42 @@
 <body>
     <%- include('../partials/overlay') %>
 
-    <div class="legend">
-        <table>
-            <thead>
-                <tr>
-                    <th><h3>Legende</h3></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="legend-1">•Ablauf</td>
-                    <td class="legend-2">•Ablauf Nr.</td>
-                    <td class="legend-3">•Dauer</td>
-                </tr>
-                <tr>
-                    <td class="legend-4">•Kritischer Vorgang</td>
-                    <td class="legend-5">•Vorwärtsrechnung</td>
-                    <td class="legend-6">•Rückwärtsrechnung</td> 
-                </tr>
-                <tr>
-                    <td class="legend-7">•Gesamt Puffer</td>
-                </tr>
-            </tbody>
-        </table>
-    </div> 
-    
-    <div class="content-network-plan">
-        <table>
-            <tbody id="network-plan-table-body">
-                <tr>
-                    <td class="network-plan-v">Vorwärtsrechnung</td>
-                    <td class="network-plan-v">Vorwärtsrechnung</td>
-                </tr>
-                <tr>
-                    <td class="network-plan-a">Ablauf Nr.</td>
-                    <td class="network-plan-d">Dauer</td>
-                </tr>
-                <tr>
-                    <td class="network-plan-r">Rückwärtsrechnung</td>
-                    <td class="network-plan-r">Rückwärtsrechnung</td>
-                </tr>        
-                    <!-- Table infos will be dynamically filled to display network plan data -->
-            </tbody>
-        </table>
-    </div>   
+    <div class="network-plan-map"> <!-- Gets loaded and automaticly generated -->
+        
+    </div>
+
+    <div class="network-plan-legend">
+        <div class="network-plan-legend-line-1">
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle"></div>
+                <p class="network-plan-legend-name process">Ablauf</p>
+            </div>
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle duration"></div>
+                <p class="network-plan-legend-name">Dauer</p>
+            </div>
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle forward-calculation"></div>
+                <p class="network-plan-legend-name">Vorwärtsrechnung</p>
+            </div>
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle buffer"></div>
+                <p class="network-plan-legend-name">Puffer</p>
+            </div>
+        </div>
+        <div class="network-plan-legend-line-2">
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle critical-path"></div>
+                <p class="network-plan-legend-name">Kritischer Pfad</p>
+            </div>
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle process-number"></div>
+                <p class="network-plan-legend-name">Ablauf Nr.</p>
+            </div>
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle reverse-calculation"></div>
+                <p class="network-plan-legend-name">Rückwärtsrechnung</p>
+            </div>
+        </div>
+    </div>
 </body>

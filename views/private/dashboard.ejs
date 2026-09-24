@@ -11,37 +11,29 @@
 <body>
     <%- include('../partials/overlay') %>
 
-    <section id="welcome">
-
-    </section>
-    <div>
-      <title>
-        Willkommen zurück <%= userId %>!
-      </title>
+    <div class="welcome-box">
+        <h1 class="welcome-title">Welcome <%= username %></h1>
     </div>
 
-    </body>
-    
-    <section>
-
-    <section id="my-projects">
-    
-    <h1>Meine Projekte</h1>
-    <div class="create-project-box">
-        <!-- button + -->
+    <div class="projects">
+        <div class="project-create-box">
+            <img src="/icons/plus.svg" alt="Create Project">
+        </div>
+        <div class="project-box">
+            <h1 class="project-title">BFI LF6 Projekt 2</h1>
+            <p class="project-description">Schulprojekt verngesteuertes Auto selber Bauen.</p>
+            <div class="project-stats">
+                <p class="project-processes">7 Vorgänge</p>
+                <p class="project-creation-date">16.09.2026</p>
+            </div>
+        </div>
+        <div class="project-box">
+            <h1 class="project-title">BFI LF6 Projekt 1</h1>
+            <p class="project-description">Zarbombe.</p>
+            <div class="project-stats">
+                <p class="project-processes">12 Vorgänge</p>
+                <p class="project-creation-date">12.08.2026</p>
+            </div>
+        </div>
     </div>
-    <div class="project-box">
-        <div class="project-titel">
-            <h2>BFI LF6 Projekt 2</h2>
-        </div>
-        <div class="project-description">
-            <p>Schulprojekt verngesteuertes 
-            <br>Auto selber Bauen</p>
-        </div>
-        <div class="project-stats">
-            <!-- img --> Vorgänge <!-- datum -->
-        </div>
-    </div>
-
-    </section>
 </body>

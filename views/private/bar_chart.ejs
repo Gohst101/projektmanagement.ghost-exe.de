@@ -10,20 +10,51 @@
 </head>
 <body>
     <%- include('../partials/overlay') %>
-    <div class="content-bar-chart">
+
+    <div class="bar-chart">
         <table>
             <thead>
                 <tr>
-                    <th>VorgangsNr</th>
-                    <th>Vorgang</th>                                      
+                    <th>Nr.</th>
+                    <th>Vorgangsname</th>
                     <th>Dauer</th>
-                    <th>Tage</th>
-                    <!--Duration in days will be dynamically added here-->
+                    <th>Vorgänger</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <!-- Duration will be generated automaticly later -->
                 </tr>
             </thead>
-            <tbody id="bar-chart-table-body">
-                <!-- Table rows will be dynamically added here to display bar chart data -->
+            <tbody class="bar-chart-processes"> <!-- Table rows will be generated automaticly later => Needs a way to display one box with full background color to visualise the days -->
+                <tr class="bar-chart-process">
+                    <td class="bar-chart-process-number">1</td>
+                    <td class="bar-chart-process-title">Planen des Autos</td>
+                    <td class="bar-chart-process-duration">3</td>
+                    <td class="bar-chart-process-predecessor">/</td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                </tr>
+                <tr class="bar-chart-process">
+                    <td class="bar-chart-process-number">2</td>
+                    <td class="bar-chart-process-title">Materiealien besorgen</td>
+                    <td class="bar-chart-process-duration">2</td>
+                    <td class="bar-chart-process-predecessor">1</td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                    <td class="bar-chart-process-duration-feld"></td>
+                </tr>
             </tbody>
         </table>
-    </div>    
+    </div>
 </body>
