@@ -1,3 +1,5 @@
+@import url('/themes/root.css');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,10 +11,10 @@
 body {
     min-height: 100vh;
 
-    background-color: #080f1c;
+    background-color: var(--main-background-color);
 
-    font-family: Arial, sans-serif;
-    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--main-text-color);
 }
 
 
@@ -20,7 +22,7 @@ body {
 .navbar {
     width: 100%;
 
-    background-color: #151f2d;
+    background-color: var(--box-background-color);
     padding: 10px 20px;
 
     display: flex;
@@ -34,9 +36,9 @@ body {
     width: 358px;
     padding: 16px 14px;
 
-    background-color: #151f2d;
+    background-color: var(--box-background-color);
 
-    border: 1px solid #526071;
+    border: 1px solid var(--box-stroke-color);
     border-radius: 9px;
 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
@@ -72,8 +74,8 @@ body {
     border: none;
     border-radius: 8px;
 
-    background-color: #2d3747;
-    color: white;
+    background-color: var(--sub-box-background-color);
+    color: var(--main-text-color);
 
     font-size: 14px;
 
@@ -95,8 +97,8 @@ body {
     border: none;
     border-radius: 8px;
 
-    background-color: #2166f3;
-    color: white;
+    background-color: var(--logo-text-color);
+    color: var(--main-text-color);
 
     font-size: 14px;
     font-weight: 500;
@@ -121,11 +123,10 @@ body {
 }
 
 .login-box a {
-    color: #1670ff;
+    color: var(--logo-text-color);
     text-decoration: none;
 }
 
 .login-box a:hover {
     color: #6315a3;
 }
-
