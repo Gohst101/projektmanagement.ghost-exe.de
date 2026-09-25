@@ -1,0 +1,53 @@
+@import url('/themes/root.css');
+
+/* Welcome Box */
+.welcome-box {
+    background-color: var(--main-background-color);
+    height: 20px;
+    width: 80px;
+}
+
+.welcome-title {
+    color: var(--main-text-color);
+}
+
+/* Projects */
+.projects {
+
+}
+
+.project-create-box {
+
+}
+
+.project-create-box img {
+
+}
+
+.project-box {
+    background-color: var(--box-background-color);
+    height: 100px;
+    width: 300px;
+    border-radius: 12px;
+    border: 1px solid var(--box-stroke-color);
+}
+
+.project-title {
+    color: var(--main-text-color)
+}
+
+.project-description {
+    color: var(--sub-text-color)
+}
+
+.project-stats {
+    color: var(--sub-text-color)
+}
+
+.project-processes {
+
+}
+
+.project-creation-data {
+
+}
