@@ -25,12 +25,12 @@ router.get('/dashboard', requireAuth, async (req, res) => {
 })
 
 // Vorplan
-router.get('/planning', requireAuth, async (req, res) => {
+router.get('/planning/:id', requireAuth, async (req, res) => {
     console.log(req.session)
     const projectId = req.params.id
 
     // Get specefic Project data
-    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId], [projectId])
+    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId, projectId])
     project.forEach(project => {
         project.tasks = JSON.parse(project.tasks).tasks
     })
@@ -52,7 +52,7 @@ router.get('/structureplan/:id', requireAuth, async (req, res) => {
     const projectId = req.params.id
 
     // Get specefic Project data
-    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId], [projectId])
+    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId, projectId])
     project.forEach(project => {
         project.tasks = JSON.parse(project.tasks).tasks
     })
@@ -69,12 +69,12 @@ router.get('/structureplan/:id', requireAuth, async (req, res) => {
 })
 
 // Balkendiagramm
-router.get('/bar_chart', requireAuth, async (req, res) => {
+router.get('/bar_chart/:id', requireAuth, async (req, res) => {
     console.log(req.session)
     const projectId = req.params.id
 
     // Get specefic Project data
-    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId], [projectId])
+    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId, projectId])
     project.forEach(project => {
         project.tasks = JSON.parse(project.tasks).tasks
     })
@@ -91,12 +91,12 @@ router.get('/bar_chart', requireAuth, async (req, res) => {
 })
 
 // Kostendiagramm
-router.get('/cost_chart', requireAuth, async (req, res) => {
+router.get('/cost_chart/:id', requireAuth, async (req, res) => {
     console.log(req.session)
     const projectId = req.params.id
 
     // Get specefic Project data
-    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId], [projectId])
+    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId, projectId])
     project.forEach(project => {
         project.tasks = JSON.parse(project.tasks).tasks
     })
@@ -113,12 +113,12 @@ router.get('/cost_chart', requireAuth, async (req, res) => {
 })
 
 // Netzplan
-router.get('/network_plan', requireAuth, async (req, res) => {
+router.get('/network_plan/:id', requireAuth, async (req, res) => {
     console.log(req.session)
     const projectId = req.params.id
 
     // Get specefic Project data
-    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId], [projectId])
+    const [project] = await pool.query("SELECT * FROM projects WHERE userId = ? AND id = ?", [req.session.user.userId, projectId])
     project.forEach(project => {
         project.tasks = JSON.parse(project.tasks).tasks
     })
