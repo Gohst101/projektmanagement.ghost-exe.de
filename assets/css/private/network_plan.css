@@ -2,19 +2,87 @@
 body {
     min-height: 100vh;
 
-    background-color: #080f1c;
+    background-color: var(--main-background-color);
 
     font-family: Arial, sans-serif;
     color: white;
 }
 
 /* Legend styles */
-.legend {
-    background-color: #080f1c;
+.network-plan-legend {
+    background-color: var(--box-background-color);
     padding: 10px;
     border-radius: 5px;
 }
 
+.network-plan-legend-line-1 {
+    background-color: var(--sub-box-background-color);
+}
+
+.network-plan-legend-line-2 {
+    background-color: var(--sub-box-background-color);
+}
+
+.network-plan-legend-item {
+    display: flex;
+    align-items: center,bottom;
+    margin-bottom: 20px;
+}
+
+.network-plan-legend-circle process {
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.network-plan-legend-circle duration {
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.network-plan-legend-circle forward-calculation {
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.network-plan-legend-circle buffer {
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.network-plan-legend-circle critical-path {
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.network-plan-legend-circle process-number {
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.network-plan-legend-circle reverse-calculation {
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.network-plan-legend-name {
+    font-size: 14px;
+    color: var(--main-text-color);
+}
+/* Legend item styles 
 .legend-1{
     color: #FFFFFF;
 }
@@ -42,74 +110,4 @@ body {
 .legend-7{
     color: #FD3DB5;
 }
-
-/* network plan table styles */
-.content-network-plan{
-    width: 80%;
-    max-width: auto;
-    margin: 0 auto;
-    padding: 20px;
-    align-items: right;
-
-    background-color: #080f1c;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-}
-
-.network-plan-table-body {
-    width: 100%;
-    max-width: 150px;
-    max-height: 200px;
-    padding: 20px;
-    margin: 0 auto;
-
-    background-color: #19212C;
-    color: #FFFFFF;
-
-    border: 1px solid #4F5967;
-    border-radius: 9px;
-}
-
-.network-plan-v{
-    margin: 5px;
-    padding: 5px;
-
-    background-color: #19212C;
-    color: #FFFFFF;
-
-    border: 1px solid #0000FF;
-    border-radius: 9px;
-}
-
-.network-plan-a{
-    margin: 5px;
-    padding: 5px;
-
-    background-color: #19212C;
-    color: #FFFFFF;
-
-    border: 1px solid #FFFF00;
-    border-radius: 9px;
-}
-
-.network-plan-d{
-    margin: 5px;
-    padding: 5px;
-
-    background-color: #19212C;
-    color: #FFFFFF;
-
-    border: 1px solid #FFA500;
-    border-radius: 9px;
-}
-
-.network-plan-r{
-    margin: 5px;
-    padding: 5px;
-
-    background-color: #19212C;
-    color: #FFFFFF;
-
-    border: 1px solid #9400D3;
-    border-radius: 9px;
-}
+*/
