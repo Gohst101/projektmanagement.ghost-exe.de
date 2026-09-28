@@ -23,9 +23,10 @@ Zum Testen im CMD / Terminal `node -v` ausführen.
 Download: https://slproweb.com/download/Win64OpenSSL-4_0_2.exe
 1. Lade dir den Installer herunter und führe ihn aus.
 2. Öffne das CMD und setze OpenSSL als System Variable: `setx PATH "%PATH%;C:\Program Files\OpenSSL-Win64\bin"`
-3. In dem C: Hauptordner einen Ordner mit dem Namen `SSL` erstellen.
-4. Im CMD dann in `C:\SSL` reingehen mit : `cd C:/SSL`.
-5. Dann im CMD in dem Path: `C:\SSL` den Befehl nutzen um ein Certificat zu erstellen: `openssl req -x509 -newkey rsa:2048 -nodes -keyout localhost-key.pem -out localhost.pem -days 365 -subj "/CN=localhost"`
+3. CMD einmal schließen und wieder öffnen.
+4. In dem C: Hauptordner einen Ordner mit dem Namen `SSL` erstellen.
+5. Im CMD dann in `C:\SSL` reingehen mit : `cd C:/SSL`.
+6. Dann im CMD in dem Path: `C:\SSL` den Befehl nutzen um ein Certificat zu erstellen: `openssl req -x509 -newkey rsa:2048 -nodes -keyout localhost-key.pem -out localhost.pem -days 365 -subj "/CN=localhost"`
 
 Zum Testen im CMD / Terminal `openssl -v`
 

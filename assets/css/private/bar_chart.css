@@ -1,0 +1,135 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Syne',sans-serif;
+    background:#1c1f26;
+    color:white;
+    padding:40px;
+}
+
+/* Container für die Balken */
+
+.bar-chart{
+    background:#202530;
+    border:2px solid #2389ff;
+    border-radius:10px;
+    padding:15px;
+    overflow:auto;
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+}
+
+/* Tabelle */
+
+table{
+    width:max-content;
+    min-width:100%;
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+
+thead{                           /* Tabellenkopf also <thead> */
+    background:#18202d;
+    position:sticky;            /* Tabellenkopf bleibt beim scrollen sichtbar oder hängen (wie ich wenn ich verscuhe zu lernen) */
+    top:0;
+    z-index:10;
+}
+
+th{
+    color:white;
+    font-weight:600;
+    font-size:14px;
+    padding:12px 10px;
+    border:1px solid #2c3545;
+    text-align:center;
+}
+
+td{
+    height:45px;
+    border:1px solid #2c3545;
+    text-align:center;
+    font-size:14px;
+    color:#ddd;
+    position:relative;
+}
+
+/* Linke Spalten */
+
+.bar-chart-process-number{
+    width:60px;
+    background:#202530;
+}
+
+.bar-chart-process-title{
+    width:240px;
+    text-align:left;
+    padding-left:15px;
+}
+
+.bar-chart-process-duration{
+    width:80px;
+}
+
+.bar-chart-process-predecessor{
+    width:90px;
+}
+
+/* Tage keine ahnung wie er es meint, aber es soll anscheinend automatisch generiert werden hilfe*/
+
+.bar-chart-process-duration-feld{
+    width:65px;
+    background:#1d222d;
+}
+
+
+
+tbody tr:hover td{
+    background:#252c39;
+}
+
+/* Balken keine ahnung fr fr  */
+
+.bar{
+    position:absolute;
+    left:3px;
+    top:7px;
+    width:calc(100% - 6px);
+    height:30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#1f80ff;
+    border-radius:6px;
+    color:white;
+    font-size:13px;
+    font-weight:600;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.15),
+        0 2px 8px rgba(0,0,0,.35);
+}
+
+/* Scrollbar (WebKit) online nachgeschaut  */
+
+::-webkit-scrollbar{
+    height:10px;
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#1b2028;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#3b4d66;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#5b78a0;
+}
