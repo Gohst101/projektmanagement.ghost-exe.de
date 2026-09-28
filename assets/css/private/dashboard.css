@@ -2,9 +2,12 @@
 
 /* Welcome Box */
 .welcome-box {
-    background-color: var(--main-background-color);
-    height: 20px;
-    width: 80px;
+    background-color: var(--box-background-color);
+    height: 150px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--box-stroke-color);
 }
 
 .welcome-title {
@@ -13,41 +16,58 @@
 
 /* Projects */
 .projects {
-
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 10px;
 }
 
 .project-create-box {
-
+    background-color: var(--box-background-color);
+    height: 150px;
+    width: 290px;
+    border-radius: 12px;
+    border: 1px solid var(--box-stroke-color);
+    align-items: center;
+    align-content: center;
+    display: flex;
+    align-self: center;
+    justify-content: center;
 }
 
 .project-create-box img {
-
+    height: 70px;
+    width: 70px;
 }
 
 .project-box {
     background-color: var(--box-background-color);
-    height: 100px;
-    width: 300px;
+    height: 150px;
+    width: 290px;
     border-radius: 12px;
     border: 1px solid var(--box-stroke-color);
+    padding: 6px;
 }
 
 .project-title {
-    color: var(--main-text-color)
+    color: var(--main-text-color);
 }
 
 .project-description {
-    color: var(--sub-text-color)
+    color: var(--sub-text-color);
+    height: 50%;
 }
 
 .project-stats {
-    color: var(--sub-text-color)
-}
-
-.project-processes {
-
-}
-
-.project-creation-data {
-
+    color: var(--sub-text-color);
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    gap: 45%;
 }
