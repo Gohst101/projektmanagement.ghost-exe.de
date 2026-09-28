@@ -3,11 +3,12 @@
 /* Welcome Box */
 .welcome-box {
     background-color: var(--box-background-color);
-    height: 150px;
+    min-height: 150px;
     width: 100%;
-    padding: 10px;
+    padding: 24px 28px;
     border-radius: 12px;
     border: 1px solid var(--box-stroke-color);
+    box-sizing: border-box;
 }
 
 .welcome-title {
@@ -17,26 +18,29 @@
 /* Projects */
 .projects {
     margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-content: flex-start;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    align-items: stretch;
 }
 
 .project-create-box {
     background-color: var(--box-background-color);
-    height: 150px;
-    width: 290px;
+    min-height: 150px;
+    width: auto;
     border-radius: 12px;
     border: 1px solid var(--box-stroke-color);
-    align-items: center;
-    align-content: center;
     display: flex;
-    align-self: center;
     justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.project-create-box:hover {
+    background-color: var(--sub-box-background-color);
+    border-color: var(--main-text-color);
+    transform: translateY(-2px);
 }
 
 .project-create-box img {
@@ -46,28 +50,57 @@
 
 .project-box {
     background-color: var(--box-background-color);
-    height: 150px;
-    width: 290px;
+    min-height: 150px;
+    width: auto;
     border-radius: 12px;
     border: 1px solid var(--box-stroke-color);
-    padding: 6px;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.project-box:hover {
+    background-color: var(--sub-box-background-color);
+    border-color: var(--main-text-color);
+    transform: translateY(-2px);
 }
 
 .project-title {
     color: var(--main-text-color);
+    margin: 0;
 }
 
 .project-description {
     color: var(--sub-text-color);
-    height: 50%;
+    margin: 4px 0 12px;
+    flex: 1;
 }
 
 .project-stats {
     color: var(--sub-text-color);
     width: 100%;
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: stretch;
-    gap: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.project-stats p {
+    margin: 0;
+}
+
+/* Kleiner Bildschirme die Boxen kleiner machen */
+@media (max-width: 560px) {
+    .welcome-box {
+        min-height: 120px;
+        padding: 20px;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
 }

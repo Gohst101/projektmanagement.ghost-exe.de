@@ -21,14 +21,14 @@
         </div>
 
         <% projects.forEach(project => { %>
-            <div class="project-box">
+            <a class="project-box" href="/planning/<%= project.id %>">
                 <h1 class="project-title"><%= project.title %></h1>
                 <p class="project-description"><%= project.description || 'Keine Beschreibung vorhanden.' %></p>
                 <div class="project-stats">
                     <p class="project-processes"><%= project.tasks.length %> Vorgänge</p>
                     <p class="project-creation-date"><%= new Date(project.created_at).toLocaleDateString('de-DE') %></p>
                 </div>
-            </div>
+            </a>
         <% }) %>
     </div>
 </body>
