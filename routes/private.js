@@ -36,6 +36,11 @@ router.get('/planning/:id', requireAuth, async (req, res) => {
         project.tasks = JSON.parse(project.tasks).tasks
     })
 
+    // Check if the Project has data. If no Data but Project was found the User has no access to it.
+    if(project && project.length === 0) {
+        return res.status(404).render('error/404')
+    }
+
     console.log("Project Data:", JSON.stringify(project, null, 2))
 
     res.render("private/planning", {
@@ -58,6 +63,11 @@ router.get('/structureplan/:id', requireAuth, async (req, res) => {
     project.forEach(project => {
         project.tasks = JSON.parse(project.tasks).tasks
     })
+
+    // Check if the Project has data. If no Data but Project was found the User has no access to it.
+    if(project && project.length === 0) {
+        return res.status(404).render('error/404')
+    }
 
     console.log("Project Data:", JSON.stringify(project, null, 2))
 
@@ -82,6 +92,11 @@ router.get('/bar_chart/:id', requireAuth, async (req, res) => {
         project.tasks = JSON.parse(project.tasks).tasks
     })
 
+    // Check if the Project has data. If no Data but Project was found the User has no access to it.
+    if(project && project.length === 0) {
+        return res.status(404).render('error/404')
+    }
+
     console.log("Project Data:", JSON.stringify(project, null, 2))
 
     res.render("private/bar_chart", {
@@ -105,6 +120,11 @@ router.get('/cost_chart/:id', requireAuth, async (req, res) => {
         project.tasks = JSON.parse(project.tasks).tasks
     })
 
+    // Check if the Project has data. If no Data but Project was found the User has no access to it.
+    if(project && project.length === 0) {
+        return res.status(404).render('error/404')
+    }
+
     console.log("Project Data:", JSON.stringify(project, null, 2))
 
     res.render("private/cost_chart", {
@@ -127,6 +147,11 @@ router.get('/network_plan/:id', requireAuth, async (req, res) => {
     project.forEach(project => {
         project.tasks = JSON.parse(project.tasks).tasks
     })
+
+    // Check if the Project has data. If no Data but Project was found the User has no access to it.
+    if(project && project.length === 0) {
+        return res.status(404).render('error/404')
+    }
 
     console.log("Project Data:", JSON.stringify(project, null, 2))
 
