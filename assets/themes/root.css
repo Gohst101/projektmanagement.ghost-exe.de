@@ -23,4 +23,13 @@
     /* Icon Colors */
     --icon-active-color: #ffffff;
     --icon-inactive-color: #C0C0C0;
+
+    /* Network Plan Legend Colors */
+    --legend-process-color: #FFFFFF;
+    --legend-duration-color: #FFA500;
+    --legend-forward-calculation-color: #0000FF;
+    --legend-buffer-color: #FD3DB5;
+    --legend-critical-path-color: #CF0000;
+    --legend-process-number-color: #FFFF00;
+    --legend-reverse-calculation-color: #9400D3;
 }
