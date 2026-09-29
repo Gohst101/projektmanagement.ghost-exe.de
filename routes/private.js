@@ -20,6 +20,7 @@ router.get('/dashboard', requireAuth, async (req, res) => {
         username: req.session.user.username,
         email: req.session.user.email,
         projects: projects,
+        projectId: null,
         currentPage: 'dashboard'
     })
 })
@@ -42,6 +43,7 @@ router.get('/planning/:id', requireAuth, async (req, res) => {
         username: req.session.user.username,
         email: req.session.user.email,
         project: project,
+        projectId: projectId,
         currentPage: 'planning'
     })
 })
@@ -64,6 +66,7 @@ router.get('/structureplan/:id', requireAuth, async (req, res) => {
         username: req.session.user.username,
         email: req.session.user.email,
         project: project,
+        projectId: projectId,
         currentPage: 'structureplan'
     })
 })
@@ -86,6 +89,7 @@ router.get('/bar_chart/:id', requireAuth, async (req, res) => {
         username: req.session.user.username,
         email: req.session.user.email,
         project: project,
+        projectId: projectId,
         currentPage: 'bar_chart'
     })
 })
@@ -108,6 +112,7 @@ router.get('/cost_chart/:id', requireAuth, async (req, res) => {
         username: req.session.user.username,
         email: req.session.user.email,
         project: project,
+        projectId: projectId,
         currentPage: 'cost_chart'
     })
 })
@@ -130,6 +135,7 @@ router.get('/network_plan/:id', requireAuth, async (req, res) => {
         username: req.session.user.username,
         email: req.session.user.email,
         project: project,
+        projectId: projectId,
         currentPage: 'network_plan'
     })
 })

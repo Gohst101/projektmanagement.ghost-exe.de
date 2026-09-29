@@ -34,35 +34,35 @@
 
                 <!-- Vorplanung -->
                 <li class="sidebar-nav-item">
-                    <a href="/planning" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'planning' ? 'active' : '' %>">
+                    <a href="<%= projectId ? '/planning/' + projectId : '/dashboard' %>" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'planning' ? 'active' : '' %>">
                         <img src="/icons/planning.svg" alt="Vorplanung Icon" class="sidebar-nav-icon">
                         <span class="sidebar-nav-text">Vorplanung</span>
                     </a>
                 </li>
                 <!-- Projektstrukturplan -->
                 <li class="sidebar-nav-item">
-                    <a href="/structureplan" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'structureplan' ? 'active' : '' %>">
+                    <a href="<%= projectId ? '/structureplan/' + projectId : '/dashboard' %>" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'structureplan' ? 'active' : '' %>">
                         <img src="/icons/structureplan.svg" alt="Structureplan Icon" class="sidebar-nav-icon">
                         <span class="sidebar-nav-text">Projektstrukturplan</span>
                     </a>
                 </li>
                 <!-- Balkendiagramm -->
                 <li class="sidebar-nav-item">
-                    <a href="/bar_chart" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'bar_chart' ? 'active' : '' %>">
+                    <a href="<%= projectId ? '/bar_chart/' + projectId : '/dashboard' %>" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'bar_chart' ? 'active' : '' %>">
                         <img src="/icons/bar_chart.svg" alt="Balkendiagramm Icon" class="sidebar-nav-icon">
                         <span class="sidebar-nav-text">Balkendiagramm</span>
                     </a>
                 </li>
                 <!-- Kostendiagramm -->
                 <li class="sidebar-nav-item">
-                    <a href="/cost_chart" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'cost_chart' ? 'active' : '' %>">
+                    <a href="<%= projectId ? '/cost_chart/' + projectId : '/dashboard' %>" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'cost_chart' ? 'active' : '' %>">
                         <img src="/icons/cost_chart.svg" alt="Kostendiagramm Icon" class="sidebar-nav-icon">
                         <span class="sidebar-nav-text">Kostendiagramm</span>
                     </a>
                 </li>
                 <!-- Netzplan -->
                 <li class="sidebar-nav-item">
-                    <a href="/network_plan" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'network_plan' ? 'active' : '' %>">
+                    <a href="<%= projectId ? '/network_plan/' + projectId : '/dashboard' %>" class="sidebar-nav-link <%= typeof currentPage !== 'undefined' && currentPage === 'network_plan' ? 'active' : '' %>">
                         <img src="/icons/network_plan.svg" alt="Netzplan Icon" class="sidebar-nav-icon">
                         <span class="sidebar-nav-text">Netzplan</span>
                     </a>
