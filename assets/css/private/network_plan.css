@@ -16,98 +16,57 @@ body {
 }
 
 .network-plan-legend-line-1 {
-    background-color: var(--sub-box-background-color);
-}
-
-.network-plan-legend-line-2 {
-    background-color: var(--sub-box-background-color);
-}
-
-.network-plan-legend-item {
     display: flex;
-    align-items: center,bottom;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-.network-plan-legend-circle process {
-    width: 250px;
-    height: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.network-plan-legend-line-2 {
+
 }
 
-.network-plan-legend-circle duration {
-    width: 250px;
-    height: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+.network-plan-legend-item {
 
-.network-plan-legend-circle forward-calculation {
-    width: 250px;
-    height: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.network-plan-legend-circle buffer {
-    width: 250px;
-    height: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.network-plan-legend-circle critical-path {
-    width: 250px;
-    height: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.network-plan-legend-circle process-number {
-    width: 250px;
-    height: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.network-plan-legend-circle reverse-calculation {
-    width: 250px;
-    height: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .network-plan-legend-name {
-    font-size: 14px;
+    font-size: 20px;
     color: var(--main-text-color);
 }
-/* Legend item styles 
-.legend-1{
-    color: #FFFFFF;
+
+.network-plan-legend-circle {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 
-.legend-2{
-    color: #FFFF00;
+.network-plan-legend-circle process {
+    background-color: var(--legend-proccess-color);
 }
 
-.legend-3{
-    color: #FFA500;
+.network-plan-legend-circle duration {
+    background-color: var(--legend-duration-color);
 }
 
-.legend-4{
-    color: #CF0000;
+.network-plan-legend-circle forward-calculation {
+    background-color: var(--legend-forward-calculation-color);
 }
 
-.legend-5{
-    color: #0000FF;
+.network-plan-legend-circle buffer {
+    background-color: var(--legend-buffer-color);
 }
 
-.legend-6{
-    color: #9400D3;
+.network-plan-legend-circle critical-path {
+    background-color: var(--legend-critical-path-color);
 }
 
-.legend-7{
-    color: #FD3DB5;
+.network-plan-legend-circle process-number {
+    background-color: var(--legend-process-number-color);
 }
-*/
+
+.network-plan-legend-circle reverse-calculation {
+    background-color: var(--legend-reverse-calculation-color);
+}
