@@ -1,3 +1,5 @@
+@import url('/themes/root.css');
+
 /* Main styles */
 body {
     min-height: 100vh;
@@ -24,11 +26,21 @@ body {
 }
 
 .network-plan-legend-line-2 {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .network-plan-legend-item {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .network-plan-legend-name {
