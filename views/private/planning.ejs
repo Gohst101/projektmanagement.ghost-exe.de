@@ -27,20 +27,14 @@
             <p>Tage</p>
             <p>Vorgänger</p>
         </div>
-        <div class="project-planning-process">
-            <p class="project-planning-process-number">1</p>
-            <p class="project-planning-process-name">Auto Aufbau Planen</p>
-            <p class="project-planning-process-duration">3</p>
-            <p class="project-planning-process-predecessor">/</p>
-            <button class="project-planning-process-delete"><img src="/icons/trash.svg" alt="Delete"></button>
-        </div>
-        <div class="project-planning-process">
-            <p class="project-planning-process-number">2</p>
-            <p class="project-planning-process-name">Materiealien besorgen</p>
-            <p class="project-planning-process-duration">2</p>
-            <p class="project-planning-process-predecessor">1</p>
-            <button class="project-planning-process-delete"><img src="/icons/trash.svg" alt="Delete"></button>
-        </div>
+        <% tasks.forEach(tasks => { %>
+            <div class="project-planning-process">
+                <p class="project-planning-process-number"><%= tasks.id %></p>
+                <p class="project-planning-process-name"><%= tasks.title %></p>
+                <p class="project-planning-process-days"><%= tasks.days %></p>
+                <p class="project-planning-process-predecessor"><%= tasks.predecessor || 'Keine Vorgänger vorhanden.' %></p>
+            </div>
+        <% }) %>
         <div class="project-planning-process-create">
             <img src="/icons/plus.svg" alt="Create Process">
             <p class="project-planning-process-create-button">Vorgang hinzufügen</p>

@@ -36,13 +36,14 @@ router.get('/planning/:id', requireAuth, async (req, res) => {
         project.tasks = JSON.parse(project.tasks).tasks
     })
 
+    
+
     // Check if the Project has data. If no Data but Project was found the User has no access to it.
     if(project && project.length === 0) {
         return res.status(404).render('error/404')
     }
 
     console.log("Project Data:", JSON.stringify(project, null, 2))
-    const tasks = JSON.stringify(project[0].tasks, null, 2)
     console.log("Project Tasks: ", tasks)
 
     res.render("private/planning", {
