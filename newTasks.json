@@ -5,6 +5,7 @@
             "position": "1",
             "days": 2,
             "workers": 2,
+            "salary": 0,
             "predecessor": []
         },
         {
@@ -12,6 +13,7 @@
             "position": "2",
             "days": 3,
             "workers": 1,
+            "salary": 0,
             "predecessor": ["1"]
         },
         {
@@ -19,6 +21,7 @@
             "position": "3",
             "days": 1,
             "workers": 5,
+            "salary": 0,
             "predecessor": ["1", "2"]
         }
     ]
