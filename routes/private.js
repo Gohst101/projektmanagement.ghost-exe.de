@@ -42,12 +42,15 @@ router.get('/planning/:id', requireAuth, async (req, res) => {
     }
 
     console.log("Project Data:", JSON.stringify(project, null, 2))
+    const tasks = JSON.stringify(project[0].tasks, null, 2)
+    console.log("Project Tasks: ", tasks)
 
     res.render("private/planning", {
         userId: req.session.user.userId,
         username: req.session.user.username,
         email: req.session.user.email,
         project: project,
+        tasks: tasks,
         projectId: projectId,
         currentPage: 'planning'
     })
