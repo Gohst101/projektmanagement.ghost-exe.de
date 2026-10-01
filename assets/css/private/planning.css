@@ -1,0 +1,12 @@
+@import url('/themes/root.css');
+
+/* Main styles */
+body {
+    min-height: 100vh;
+
+    background-color: var(--main-background-color);
+
+    font-family: Arial, sans-serif;
+    color: var(--main-text-color);
+}
+
