@@ -12,11 +12,11 @@
     <%- include('../partials/overlay') %>
 
     <div class="project-planning-box">
-        <h1 class="project-planning-title">BFI LF6 Projekt 2</h1>
-        <p class="project-planning-description">Schulprojekt verngesteuertes Auto selber Bauen.</p>
+        <h1 class="project-planning-title"><%= project.title %></h1>
+        <p class="project-planning-description"><%= project.description || 'Keine Beschreibung vorhanden.' %></p>
         <div class="project-planning-stats">
-            <p class="project-planning-processes">7 Vorgänge</p>
-            <p class="project-planning-creation-date">16.09.2026</p>
+            <p class="project-planning-processes"><%= tasks.length %> Vorgänge</p>
+            <p class="project-planning-creation-date"><%= new Date(project.created_at).toLocaleDateString('de-DE') %></p>
         </div>
     </div>
 
@@ -27,12 +27,12 @@
             <p>Tage</p>
             <p>Vorgänger</p>
         </div>
-        <% tasks.forEach(tasks => { %>
+        <% tasks.forEach(task => { %>
             <div class="project-planning-process">
-                <p class="project-planning-process-number"><%= tasks.id %></p>
-                <p class="project-planning-process-name"><%= tasks.title %></p>
-                <p class="project-planning-process-days"><%= tasks.days %></p>
-                <p class="project-planning-process-predecessor"><%= tasks.predecessor || 'Keine Vorgänger vorhanden.' %></p>
+                <p class="project-planning-process-number"><%= task.id %></p>
+                <p class="project-planning-process-name"><%= task.title %></p>
+                <p class="project-planning-process-days"><%= task.days %></p>
+                <p class="project-planning-process-predecessor"><%= task.predecessor || 'Keine Vorgänger vorhanden.' %></p>
             </div>
         <% }) %>
         <div class="project-planning-process-create">
