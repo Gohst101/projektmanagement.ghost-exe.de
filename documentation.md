@@ -1,5 +1,12 @@
 ToDo:
-- Vorplannung CSS überprüfen
+Dashboard
+- Erstellen von Projekten => Name*
+- Löschen / Löschen Bestätigen um Projekt zu entfernen
+- Internal API für die oberen Punkte
+
+
+Vorplanung
+- Vorplanung CSS überprüfen
 - HTML und Felder für Form aufbereiten
 - JavaScript zur erstellung neuer und entfernen der HTML Boxen
 - Speicher Internal API
