@@ -1,3 +1,10 @@
+ToDo:
+- Vorplannung CSS überprüfen
+- HTML und Felder für Form aufbereiten
+- JavaScript zur erstellung neuer und entfernen der HTML Boxen
+- Speicher Internal API
+
+
 API Routes:
 
 Register:
@@ -5,6 +12,9 @@ Register:
 
 Login:
 /auth/login
+
+Internal Save:
+/api/planning/save
 
 
 
