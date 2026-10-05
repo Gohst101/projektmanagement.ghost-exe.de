@@ -4,7 +4,7 @@
 body {
     min-height: 100vh;
 
-    background-color: var(--main-background-color: #0B1220);
+    background-color: var(--main-background-color);
 
     font-family: Arial, sans-serif;
     color: white;
@@ -12,7 +12,7 @@ body {
 
 /* Legend styles */
 .network-plan-legend {
-    background-color: var(--box-background-color: #19212C);
+    background-color: var(--box-background-color);
     padding: 10px;
     border-radius: 5px;
 }
@@ -45,7 +45,7 @@ body {
 
 .network-plan-legend-name {
     font-size: 20px;
-    color: var(--main-text-color: #FFFFFF);
+    color: var(--main-text-color);
 }
 
 .network-plan-legend-circle {
@@ -56,29 +56,29 @@ body {
 }
 
 .network-plan-legend-circle process {
-    background-color: var(--legend-proccess-color: #FFFFFF);
+    background-color: var(--legend-proccess-color);
 }
 
 .network-plan-legend-circle duration {
-    background-color: var(--legend-duration-color: #FFA500);
+    background-color: var(--legend-duration-color);
 }
 
 .network-plan-legend-circle forward-calculation {
-    background-color: var(--legend-forward-calculation-color: #0000FF);
+    background-color: var(--legend-forward-calculation-color);
 }
 
 .network-plan-legend-circle buffer {
-    background-color: var(--legend-buffer-color: #FD3DB5);
+    background-color: var(--legend-buffer-color);
 }
 
 .network-plan-legend-circle critical-path {
-    background-color: var(--legend-critical-path-color: #CF0000);
+    background-color: var(--legend-critical-path-color);
 }
 
 .network-plan-legend-circle process-number {
-    background-color: var(--legend-process-number-color: #FFFF00);
+    background-color: var(--legend-process-number-color);
 }
 
 .network-plan-legend-circle reverse-calculation {
-    background-color: var(--legend-reverse-calculation-color: #9400D3);
+    background-color: var(--legend-reverse-calculation-color);
 }
