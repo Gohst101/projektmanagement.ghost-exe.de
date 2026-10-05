@@ -48,37 +48,65 @@ body {
     color: var(--main-text-color);
 }
 
-.network-plan-legend-circle {
+.network-plan-legend-circle-process {
+    border-radius: 15px;
+    background-color: var(--legend-process-color);
     width: 30px;
     height: 30px;
     margin-top: 10px;
     margin-bottom: 10px
 }
 
-.network-plan-legend-circle process {
-    background-color: var(--legend-proccess-color);
-}
-
-.network-plan-legend-circle duration {
+.network-plan-legend-circle-duration {
+    border-radius: 15px;
     background-color: var(--legend-duration-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 
-.network-plan-legend-circle forward-calculation {
+.network-plan-legend-circle-forward-calculation {
+    border-radius: 15px;
     background-color: var(--legend-forward-calculation-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 
-.network-plan-legend-circle buffer {
+.network-plan-legend-circle-buffer {
+    border-radius: 15px;
     background-color: var(--legend-buffer-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 
-.network-plan-legend-circle critical-path {
+.network-plan-legend-circle-critical-path {
+    border-radius: 15px;
     background-color: var(--legend-critical-path-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 
-.network-plan-legend-circle process-number {
+.network-plan-legend-circle-process-number {
+    border-radius: 15px;
     background-color: var(--legend-process-number-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 
-.network-plan-legend-circle reverse-calculation {
+.network-plan-legend-circle-reverse-calculation {
+    border-radius: 15px;
     background-color: var(--legend-reverse-calculation-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
 }
