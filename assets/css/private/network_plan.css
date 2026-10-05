@@ -51,8 +51,8 @@ body {
 .network-plan-legend-circle-process {
     border-radius: 15px;
     background-color: var(--legend-process-color);
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     margin-top: 10px;
     margin-bottom: 10px
 }
