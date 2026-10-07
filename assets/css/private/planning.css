@@ -1,76 +1,280 @@
 @import url('/themes/root.css');
 
-/* Main styles */
+/* Main content */
 body {
     min-height: 100vh;
-
-    background-color: var(--main-background-color);
-
-    font-family: Arial, sans-serif;
     color: var(--main-text-color);
+    background-color: var(--main-background-color);
+    font-family: var(--font-family);
 }
 
-
-/* Welcome Box */
-.projekt-planning-box {
-    background-color: var(--box-background-color);
-    min-height: 150px;
+.project-planning-box,
+.project-planning-process,
+.project-planning-process-create,
+.project-planning-processes {
     width: 100%;
-    padding: 24px 28px;
-    border-radius: 12px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Project overview */
+.project-planning-box {
+    padding: 22px 24px;
     border: 1px solid var(--box-stroke-color);
-    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: var(--box-background-color);
 }
 
 .project-planning-title {
+    margin: 0;
     color: var(--main-text-color);
+    font-size: clamp(1.45rem, 2.5vw, 2rem);
+    font-weight: 500;
+    line-height: 1.2;
 }
 
-/* Projects */
-.project-planning-process {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 16px;
-    align-items: stretch;
+.project-planning-description {
+    margin: 6px 0 18px;
+    color: var(--sub-text-color);
+    font-size: 1rem;
 }
 
-.project-planning-process-create-button {
-    background-color: var(--box-background-color);
-    min-height: 150px;
-    width: auto;
-    border-radius: 12px;
-    border: 1px solid var(--box-stroke-color);
+.project-planning-stats {
     display: flex;
-    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 28px;
+}
+
+.project-planning-stats p {
+    margin: 0;
+    color: var(--sub-text-color);
+    font-size: 0.9rem;
+}
+
+/* Task list */
+.project-planning-processes {
+    margin: 24px auto 0;
+}
+
+.project-planning-process-titles,
+.project-planning-process {
+    display: grid;
+    grid-template-columns: 56px minmax(180px, 1fr) 84px minmax(80px, 0.45fr);
+    gap: 12px;
     align-items: center;
-    box-sizing: border-box;
-    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
-.project-planning-process-create-button:hover {
-    background-color: var(--sub-box-background-color);
-    border-color: var(--main-text-color);
-    transform: translateY(-2px);
+.project-planning-process-titles {
+    padding: 0 16px 8px;
+    color: var(--sub-text-color);
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
-.project-planning-process-create-button img {
-    height: 70px;
-    width: 70px;
-}
-
-.p {
+.project-planning-process-titles p,
+.project-planning-process p {
     margin: 0;
 }
 
-/* Kleiner Bildschirme die Boxen kleiner machen */
-@media (max-width: 560px) {
+.project-planning-process {
+    min-height: 58px;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: 1px solid var(--box-stroke-color);
+    border-radius: 9px;
+    background-color: var(--box-background-color);
+}
+
+.project-planning-process[draggable="true"] {
+    cursor: grab;
+}
+
+.project-planning-process.dragging {
+    opacity: 0.45;
+    cursor: grabbing;
+}
+
+.project-planning-process.drag-over {
+    border-color: var(--main-text-color);
+    box-shadow: 0 0 0 2px var(--sub-box-background-color);
+}
+
+.project-planning-process-number {
+    color: var(--sub-text-color);
+}
+
+.project-planning-process-name,
+.project-planning-process-days,
+.project-planning-process-predecessor {
+    width: 100%;
+    min-width: 0;
+    padding: 9px 12px;
+    overflow: hidden;
+    border: 1px solid var(--box-stroke-color);
+    border-radius: 8px;
+    outline: none;
+    color: var(--main-text-color);
+    background-color: transparent;
+    font: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.project-planning-process-name:focus,
+.project-planning-process-days:focus,
+.project-planning-process-predecessor:focus {
+    border-color: var(--main-text-color);
+    background-color: var(--sub-box-background-color);
+}
+
+.project-planning-process-name::placeholder,
+.project-planning-process-predecessor::placeholder {
+    color: var(--sub-text-color);
+    opacity: 1;
+}
+
+.project-planning-process-days,
+.project-planning-process-predecessor {
+    text-align: center;
+}
+
+.project-planning-predecessor-select {
+    position: relative;
+    min-width: 0;
+}
+
+.project-planning-predecessor-select .project-planning-process-predecessor {
+    cursor: pointer;
+}
+
+.project-planning-predecessor-options {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+    max-height: 220px;
+    overflow-y: auto;
+    padding: 6px;
+    border: 1px solid var(--box-stroke-color);
+    border-radius: 8px;
+    background-color: var(--box-background-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+}
+
+.project-planning-predecessor-select.open .project-planning-predecessor-options {
+    display: grid;
+    gap: 4px;
+}
+
+.project-planning-predecessor-option {
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 6px;
+    color: var(--main-text-color);
+    background-color: transparent;
+    font: inherit;
+    font-size: 0.8rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.project-planning-predecessor-option:hover,
+.project-planning-predecessor-option.selected {
+    background-color: var(--sub-box-background-color);
+}
+
+.project-planning-predecessor-option.selected::after {
+    float: right;
+    content: '\2713';
+    color: var(--main-text-color);
+}
+
+.project-planning-process-create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 58px;
+    margin-top: 10px;
+    border: 1px solid var(--box-stroke-color);
+    border-radius: 9px;
+    background-color: var(--box-background-color);
+    color: var(--main-text-color);
+    font: inherit;
+    padding: 8px 16px;
+    appearance: none;
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.project-planning-process-create:hover {
+    border-color: var(--main-text-color);
+    background-color: var(--sub-box-background-color);
+}
+
+.project-planning-process-create img {
+    width: 22px;
+    height: 22px;
+    filter: brightness(0) invert(1);
+}
+
+.project-planning-process-create-button {
+    margin: 0;
+    font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+    body {
+        margin-right: 12px;
+        margin-left: 12px;
+    }
+
+    .project-planning-processes {
+        overflow-x: auto;
+    }
+
+    .project-planning-process-titles,
     .project-planning-process {
-        min-height: 120px;
-        padding: 20px;
+        grid-template-columns: 36px minmax(140px, 1fr) 68px 76px;
+        gap: 8px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .project-planning-process-titles {
+        font-size: 0.75rem;
+    }
+
+    .project-planning-process-name,
+    .project-planning-process-days,
+    .project-planning-process-predecessor {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-planning-box {
+        padding: 18px;
+    }
+
+    .project-planning-process-titles,
+    .project-planning-process {
+        grid-template-columns: 28px minmax(120px, 1fr) 56px 64px;
+        gap: 6px;
     }
 
     .project-planning-process {
-        grid-template-columns: 1fr;
+        min-height: 52px;
+        padding: 6px;
+    }
+
+    .project-planning-process-name,
+    .project-planning-process-days,
+    .project-planning-process-predecessor {
+        padding: 7px 5px;
+        font-size: 0.75rem;
     }
 }
