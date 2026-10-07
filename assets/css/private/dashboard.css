@@ -19,15 +19,17 @@
 .projects {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
     gap: 16px;
     align-items: stretch;
+    justify-content: start;
 }
 
 .project-create-box {
     background-color: var(--box-background-color);
     min-height: 150px;
-    width: auto;
+    width: 100%;
+    max-width: 300px;
     border-radius: 12px;
     border: 1px solid var(--box-stroke-color);
     display: flex;
@@ -51,7 +53,8 @@
 .project-box {
     background-color: var(--box-background-color);
     min-height: 150px;
-    width: auto;
+    width: 100%;
+    max-width: 300px;
     border-radius: 12px;
     border: 1px solid var(--box-stroke-color);
     padding: 16px;
