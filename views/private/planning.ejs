@@ -30,20 +30,9 @@
         <% tasks.forEach(task => { %>
             <div class="project-planning-process" draggable="true">
                 <p class="project-planning-process-number"><%= task.id %></p>
-                <input class="project-planning-process-name" type="text" name="task-title-<%= task.id %>" value="<%= task.title %>" aria-label="Vorgangsname">
-                <input class="project-planning-process-days" type="number" name="task-days-<%= task.id %>" value="<%= task.days %>" min="0" aria-label="Tage">
-                <div class="project-planning-predecessor-select">
-                    <input class="project-planning-process-predecessor" type="text" name="task-predecessor-<%= task.id %>" value="<%= task.predecessor || '' %>" placeholder="Keine Vorgänger" aria-label="Vorgänger" readonly>
-                    <div class="project-planning-predecessor-options" role="listbox" aria-label="Vorgänger auswählen">
-                        <% tasks.forEach(predecessorTask => { %>
-                            <% if (predecessorTask.id !== task.id) { %>
-                                <button type="button" class="project-planning-predecessor-option" data-task-id="<%= predecessorTask.id %>" role="option">
-                                    <%= predecessorTask.id %> - <%= predecessorTask.title %>
-                                </button>
-                            <% } %>
-                        <% }) %>
-                    </div>
-                </div>
+                <p class="project-planning-process-name"><%= task.title %></p>
+                <p class="project-planning-process-duration"><%= task.days %></p>
+                <p class="project-planning-process-predecessor"><%= task.predecessor || 'Keine Vorgänger vorhanden.' %></p>
             </div>
         <% }) %>
         <button type="button" class="project-planning-process-create">
