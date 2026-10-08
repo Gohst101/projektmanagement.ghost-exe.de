@@ -22,7 +22,8 @@ body {
     position: absolute;
     right: 13px;
     bottom: 14px;
-    height: 50px;
+    height: 70px;
+    width: 170px;
     padding: 0 10px;
     background: #151f2d;
     color: #e5e7eb;
@@ -31,7 +32,8 @@ body {
     font-size: 10px;
     cursor: pointer;
     transition: 0.2s;
-
+    align-items: center;
+    text-align: center  ;
 }
 
 .structureplan-category-create-button:hover {
