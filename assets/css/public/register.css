@@ -9,34 +9,20 @@
 body {
     min-height: 100vh;
 
-    background-color: #080f1c;
+    background-color: var(--main-background-color);
 
-    font-family: Arial, sans-serif;
-    color: white;
+    font-family: var(--font-family);
+    color: var(--main-text-color);
 }
-
-
-/* Navbar */
-.navbar {
-    width: 100%;
-
-    background-color: #151f2d;
-    padding: 10px 20px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 
 /* Register-Bereich */
 .register-box {
     width: 358px;
     padding: 16px 14px;
 
-    background-color: #151f2d;
+    background-color: var(--box-background-color);
 
-    border: 1px solid #526071;
+    border: 1px solid var(--box-stroke-color);
     border-radius: 9px;
 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
@@ -72,8 +58,8 @@ body {
     border: none;
     border-radius: 8px;
 
-    background-color: #2d3747;
-    color: white;
+    background-color: var(--sub-box-background-color);
+    color: var(--main-text-color);
 
     font-size: 14px;
 
@@ -81,7 +67,7 @@ body {
 }
 
 .register-box input::placeholder {
-    color: #9299a4;
+    color: var(--sub-text-color);
 }
 
 
@@ -95,8 +81,8 @@ body {
     border: none;
     border-radius: 8px;
 
-    background-color: #2166f3;
-    color: white;
+    background-color: var(--button-blue-color);
+    color: var(--main-text-color);
 
     font-size: 14px;
     font-weight: 500;
@@ -107,24 +93,28 @@ body {
 }
 
 .register-box button:hover {
-    background-color: #1858dc;
-    box-shadow: 0 0 20px #6fc5ff50;
-    transform: scale(1.05);
+    background-color: var(--button-blue-hover-color);
 }
 
+/* Error Message */
+.error-section p {
+    color: var(--error-text-color);
+    font-size: 12px;
+    font-weight: 700;
+}
 
 /* Registrierungstext */
 .register-box p {
     margin-top: 12px;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .register-box a {
-    color: #1670ff;
+    color: var(--logo-text-color);
     text-decoration: none;
 }
 
 .register-box a:hover {
-    color: #6315a3;
+    color: var(--link-text-color);
 }

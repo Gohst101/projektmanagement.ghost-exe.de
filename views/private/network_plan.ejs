@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Planing</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/private/network_plan.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt Netzplan</title>
+    <link rel="stylesheet" href="/css/private/network_plan.css">
 </head>
-
 <body>
     <%- include('../partials/overlay') %>
 
-    
+    <div class="network-plan-map"> <!-- Gets loaded and automaticly generated -->
+        
+    </div>
+
+    <div class="network-plan-legend">
+        <div class="network-plan-legend-line-1">
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle-process"></div>
+                <p class="network-plan-legend-name">Ablauf</p>
+            </div>
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle-duration"></div>
+                <p class="network-plan-legend-name">Dauer</p>
+            </div>
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle-forward-calculation"></div>
+                <p class="network-plan-legend-name">Vorwärtsrechnung</p>
+            </div>
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle-buffer"></div>
+                <p class="network-plan-legend-name">Puffer</p>
+            </div>
+        </div>
+        <div class="network-plan-legend-line-2">
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle-critical-path"></div>
+                <p class="network-plan-legend-name">Kritischer Pfad</p>
+            </div>
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle-process-number"></div>
+                <p class="network-plan-legend-name">Ablauf Nr.</p>
+            </div>
+            <div class="network-plan-legend-item">
+                <div class="network-plan-legend-circle-reverse-calculation"></div>
+                <p class="network-plan-legend-name">Rückwärtsrechnung</p>
+            </div>
+        </div>
+    </div>
 </body>

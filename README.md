@@ -19,6 +19,17 @@ Download: https://nodejs.org/en/download
 
 Zum Testen im CMD / Terminal `node -v` ausführen.
 
+**OpenSSL**\
+Download: https://slproweb.com/download/Win64OpenSSL-4_0_2.exe
+1. Lade dir den Installer herunter und führe ihn aus.
+2. Öffne das CMD und setze OpenSSL als System Variable: `setx PATH "%PATH%;C:\Program Files\OpenSSL-Win64\bin"`
+3. CMD einmal schließen und wieder öffnen.
+4. In dem C: Hauptordner einen Ordner mit dem Namen `SSL` erstellen.
+5. Im CMD dann in `C:\SSL` reingehen mit : `cd C:/SSL`.
+6. Dann im CMD in dem Path: `C:\SSL` den Befehl nutzen um ein Certificat zu erstellen: `openssl req -x509 -newkey rsa:2048 -nodes -keyout localhost-key.pem -out localhost.pem -days 365 -subj "/CN=localhost"`
+
+Zum Testen im CMD / Terminal `openssl -v`
+
 **Git**\
 Download: https://git-scm.com/install/windows
 1. Lade dir deinen Installer herunter z.B. Git for Windows/x64 Setup und führe die Datei aus. 

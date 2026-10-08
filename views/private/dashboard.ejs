@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Planing</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Projekte Dashboard</title>
     <link rel="stylesheet" href="/css/private/dashboard.css">
 </head>
 <body>
     <%- include('../partials/overlay') %>
 
-</body>    
+    <div class="welcome-box">
+        <h1 class="welcome-title">Willkommen zurück <%= username %>!</h1>
+    </div>
+
+    <div class="projects">
+        <div class="project-create-box">
+            <img src="/icons/plus.svg" alt="Create Project">
+        </div>
+
+        <% projects.forEach(project => { %>
+            <a class="project-box" href="/planning/<%= project.id %>">
+                <h1 class="project-title"><%= project.title %></h1>
+                <p class="project-description"><%= project.description || 'Keine Beschreibung vorhanden.' %></p>
+                <div class="project-stats">
+                    <p class="project-processes"><%= project.tasks.length %> Vorgänge</p>
+                    <p class="project-creation-date"><%= new Date(project.created_at).toLocaleDateString('de-DE') %></p>
+                </div>
+            </a>
+        <% }) %>
+    </div>
+</body>

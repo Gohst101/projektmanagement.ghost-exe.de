@@ -1,0 +1,27 @@
+@import url('/themes/root.css');
+
+body {
+  font-family: var(--font-family);
+  color: var(--main-text-color);
+  min-height: 100vh;
+  overflow: auto !important;
+  background: var(--main-background-color);
+}
+
+/* NavBar */
+.top-navbar {
+  background-color: var(--box-background-color);
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 60px;
+  border-bottom: 1px solid var(--box-stroke-color);
+}

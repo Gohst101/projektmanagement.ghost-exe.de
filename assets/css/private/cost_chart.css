@@ -1,0 +1,60 @@
+@import url('/themes/root.css');
+
+/* Main styles */
+body {
+    min-height: 100vh;
+
+    background-color: var(--main-background-color);
+
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* Diagram divbox styles */
+
+.cost_chart_workers {
+    width: 80%;
+    max-width: auto;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: right;
+
+    background-color: var(--box-background-color);
+
+    border: 1px solid var(--box-stroke-color);
+    border-radius: 9px;
+}
+
+.cost_chart{
+    width: 80%;
+    max-width: auto;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: right;
+
+    background-color: var(--box-background-color);
+
+    border: 1px solid var(--box-stroke-color);
+    border-radius: 9px;
+}
+
+/* Chart styles */
+.cost_chart_workers_c {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: right;
+
+    background-color: var(--box-background-color);
+}
+
+.cost_chart_c {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: right;
+
+    background-color: var(--box-background-color);
+}

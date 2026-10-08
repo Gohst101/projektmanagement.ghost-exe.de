@@ -1,0 +1,112 @@
+@import url('/themes/root.css');
+
+/* Main styles */
+body {
+    min-height: 100vh;
+
+    background-color: var(--main-background-color);
+
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* Legend styles */
+.network-plan-legend {
+    background-color: var(--box-background-color);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.network-plan-legend-line-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.network-plan-legend-line-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.network-plan-legend-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.network-plan-legend-name {
+    font-size: 20px;
+    color: var(--main-text-color);
+}
+
+.network-plan-legend-circle-process {
+    border-radius: 15px;
+    background-color: var(--legend-process-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.network-plan-legend-circle-duration {
+    border-radius: 15px;
+    background-color: var(--legend-duration-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.network-plan-legend-circle-forward-calculation {
+    border-radius: 15px;
+    background-color: var(--legend-forward-calculation-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.network-plan-legend-circle-buffer {
+    border-radius: 15px;
+    background-color: var(--legend-buffer-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.network-plan-legend-circle-critical-path {
+    border-radius: 15px;
+    background-color: var(--legend-critical-path-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.network-plan-legend-circle-process-number {
+    border-radius: 15px;
+    background-color: var(--legend-process-number-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.network-plan-legend-circle-reverse-calculation {
+    border-radius: 15px;
+    background-color: var(--legend-reverse-calculation-color);
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}

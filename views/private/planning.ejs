@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Planing</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/private/planning.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt Planung</title>
+    <link rel="stylesheet" href="/css/private/planning.css">
 </head>
-
 <body>
     <%- include('../partials/overlay') %>
 
-    <div class="Content_Project_New">
-        <h2>New Project Titel and Description</h2>
-    </div> 
-
-    <div class="Content_Pre-Planinglist">
-        <div class="Pre-Planinglist_Box">
-            <p class="Processs_NR">Process 1</p>
-            <input type="text">
-            <input type="number">   
-            <input type="number">
-            <button class="Button_Delete_Process">🗑</button>
-        </div>    
-        
-        <div class="Pre-Planinglist_Box">
-            <button class="Button_Add_Process">Add Process</button>
+    <div class="project-planning-box">
+        <h1 class="project-planning-title"><%= project.title %></h1>
+        <p class="project-planning-description"><%= project.description || 'Keine Beschreibung vorhanden.' %></p>
+        <div class="project-planning-stats">
+            <p class="project-planning-processes"><%= tasks.length %> Vorgänge</p>
+            <p class="project-planning-creation-date"><%= new Date(project.created_at).toLocaleDateString('de-DE') %></p>
         </div>
-
     </div>
+
+    <div class="project-planning-processes">
+        <div class="project-planning-process-titles">
+            <p>Nr.</p>
+            <p>Vorgangsname</p>
+            <p>Tage</p>
+            <p>Vorgänger</p>
+        </div>
+        <% tasks.forEach(task => { %>
+            <div class="project-planning-process" draggable="true">
+                <p class="project-planning-process-number"><%= task.id %></p>
+                <p class="project-planning-process-name"><%= task.title %></p>
+                <p class="project-planning-process-duration"><%= task.days %></p>
+                <p class="project-planning-process-predecessor"><%= task.predecessor || 'Keine Vorgänger vorhanden.' %></p>
+            </div>
+        <% }) %>
+        <button type="button" class="project-planning-process-create">
+            <img src="/icons/plus.svg" alt="Create Process">
+            <p class="project-planning-process-create-button">Vorgang hinzufügen</p>
+        </button>
+    </div>
+    <script src="/js/planning/planning.js"></script>
 </body>

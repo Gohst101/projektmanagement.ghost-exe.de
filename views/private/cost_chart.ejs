@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Planing</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/private/cost_chart.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt Kostendiagramm</title>
+    <link rel="stylesheet" href="/css/private/cost_chart.css">
 </head>
-
 <body>
-    <%- include('../partials/overlay') %>
+    <%- include('../partials/overlay') %>    
 
-    
+    <div class="cost-chart-workers">
+        <canvas id="cost-chart-workers" class="cost-chart-workers-c"></canvas>
+    </div>
+    <div class="cost-chart">
+        <canvas id="cost-chart" class="cost-chart-c"></canvas>
+    </div>
 </body>

@@ -1,0 +1,28 @@
+{
+    "tasks": [
+        {
+            "name": "Kachel 1",
+            "position": "1",
+            "days": 2,
+            "workers": 2,
+            "salary": 0,
+            "predecessor": []
+        },
+        {
+            "name": "Kachel 2",
+            "position": "2",
+            "days": 3,
+            "workers": 1,
+            "salary": 0,
+            "predecessor": ["1"]
+        },
+        {
+            "name": "Kachel 3",
+            "position": "3",
+            "days": 1,
+            "workers": 5,
+            "salary": 0,
+            "predecessor": ["1", "2"]
+        }
+    ]
+}

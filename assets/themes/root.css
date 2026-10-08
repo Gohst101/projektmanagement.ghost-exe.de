@@ -1,18 +1,26 @@
 :root {
+    /* Font Family */
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
     /* Texte */
     --main-text-color: #ffffff;
     --sub-text-color: #C0C0C0;
     --logo-text-color: #1B5FFA;
     --error-text-color: #a10000;
     --success-text-color: #25a900;
+    --link-text-color: #6315a3;
+
+    /* Wesite Farben */
+    --main-background-color: #0B1220;
 
     /* Box Farben */
-    --main-background-color: #0B1220;
     --box-background-color: #19212C;
+    --sub-box-background-color: #2C3441;
 
 
     /* Button */
     --button-blue-color: #1B5FFA;
+    --button-blue-hover-color: #1145ac;
 
     /* Box Stroke */
     --box-stroke-color: #4F5967;
@@ -20,4 +28,13 @@
     /* Icon Colors */
     --icon-active-color: #ffffff;
     --icon-inactive-color: #C0C0C0;
+
+    /* Network Plan Legend Colors */
+    --legend-process-color: #FFFFFF;
+    --legend-duration-color: #FFA500;
+    --legend-forward-calculation-color: #0000FF;
+    --legend-buffer-color: #FD3DB5;
+    --legend-critical-path-color: #CF0000;
+    --legend-process-number-color: #FFFF00;
+    --legend-reverse-calculation-color: #9400D3;
 }

@@ -1,51 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Planing</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Projektmanagement</title>
     <link rel="stylesheet" href="/css/public/register.css">
 </head>
 <body>
-   <nav class="navbar"> <%- include('../partials/navbar') %></nav>
-     <div class="register-box">
-        <h1>Neues Konto erstellen</h1>
-            <form action="/auth/register" method="POST">
+    <%- include('../partials/navbar') %>
 
+    <div class="register-box">
+        <h1>Neues Konto erstellen</h1>
+        <form action="/auth/register" method="POST">
             <div class="inputbox-Benutzername">
                 <label for="username">Benutzername</label>
-                  <input type ="text" id="username" name="username" placeholder="Benutzername" required>
+                <input type ="text" id="username" name="username" placeholder="Benutzername" required>
             </div>
-
 
             <div class="inputbox-email">
                 <label for="email">E-Mail</label>
-                  <input type ="email" id="email" name="email" placeholder="maxmusterman@gmail.com" required>
+                <input type ="email" id="email" name="email" placeholder="maxmusterman@gmail.com" required>
             </div>
 
-           <div class="inputbox-password">       
+            <div class="inputbox-password">       
                 <label for="password">Passwort</label>
                 <input type="password" id="password" name="password" placeholder="********" required>
-           </div>
+            </div>
 
-           <div class="inputbox-password_wiederholen">       
+            <div class="inputbox-password_wiederholen">       
                 <label for="password_confirm">Passwort bestätigen</label>
                 <input type="password" id="password_confirm" name="password_confirm" placeholder="********" required>
-           </div>
+            </div>
         
-           <div class="submit-section">
-                <button type="submit">Anmelden</button>
-           </div>
-            </form>
+            <div class="submit-section">
+                <button type="submit">Registrieren</button>
+            </div>
+        </form>
 
-        <p>
-            Schon registriert?
-            <a href="/login">Zum Login</a>
-        </p>
+        <div class="error-section">
+            <% if ( error !== null ) { %>
+                <p><%= error %></p>
+            <% } %>
+        </div>
 
+        <p>Schon registriert? <a href="/login">Zum Anmelden</a></p>
     </div>
-
 </body>
 </html>

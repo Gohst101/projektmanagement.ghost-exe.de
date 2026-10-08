@@ -1,0 +1,109 @@
+@import url('/themes/root.css');
+
+/* Welcome Box */
+.welcome-box {
+    background-color: var(--box-background-color);
+    min-height: 150px;
+    width: 100%;
+    padding: 24px 28px;
+    border-radius: 12px;
+    border: 1px solid var(--box-stroke-color);
+    box-sizing: border-box;
+}
+
+.welcome-title {
+    color: var(--main-text-color);
+}
+
+/* Projects */
+.projects {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
+    gap: 16px;
+    align-items: stretch;
+    justify-content: start;
+}
+
+.project-create-box {
+    background-color: var(--box-background-color);
+    min-height: 150px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+    border: 1px solid var(--box-stroke-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.project-create-box:hover {
+    background-color: var(--sub-box-background-color);
+    border-color: var(--main-text-color);
+    transform: translateY(-2px);
+}
+
+.project-create-box img {
+    height: 70px;
+    width: 70px;
+}
+
+.project-box {
+    background-color: var(--box-background-color);
+    min-height: 150px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+    border: 1px solid var(--box-stroke-color);
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.project-box:hover {
+    background-color: var(--sub-box-background-color);
+    border-color: var(--main-text-color);
+    transform: translateY(-2px);
+}
+
+.project-title {
+    color: var(--main-text-color);
+    margin: 0;
+}
+
+.project-description {
+    color: var(--sub-text-color);
+    margin: 4px 0 12px;
+    flex: 1;
+}
+
+.project-stats {
+    color: var(--sub-text-color);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.project-stats p {
+    margin: 0;
+}
+
+/* Kleiner Bildschirme die Boxen kleiner machen */
+@media (max-width: 560px) {
+    .welcome-box {
+        min-height: 120px;
+        padding: 20px;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+}
