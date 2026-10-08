@@ -58,7 +58,7 @@ Das npm Projekt Initalisieren\
 `npm init -y`
 
 Die npm Packete Installieren\
-`npm install bcryptjs dotenv ejs express-session express fs mysql2 path pem`
+`npm install bcryptjs dotenv ejs express-session express fs mysql2 path pem nodemailer`
 
 Projekt Starten\
 `npm run dev`
