@@ -29,11 +29,17 @@ body {
     color: #e5e7eb;
     border: 1px solid #526071;
     border-radius: 5px;
-    font-size: 10px;
+    font-size: 16px;
     cursor: pointer;
     transition: 0.2s;
+    display: flex;
     align-items: center;
-    text-align: center  ;
+    text-align: center;
+}
+
+.structureplan-category-create-button img {
+    width: 30px;
+    height: 30px;
 }
 
 .structureplan-category-create-button:hover {
