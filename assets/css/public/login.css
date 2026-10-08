@@ -109,9 +109,7 @@ body {
 }
 
 .login-box button:hover {
-    background-color: #1858dc;
-    box-shadow: 0 0 20px #6fc5ff50;
-    transform: scale(1.05);
+    background-color: var(--button-blue-hover-color);
 }
 
 
@@ -119,7 +117,7 @@ body {
 .login-box p {
     margin-top: 12px;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .login-box a {
@@ -128,5 +126,5 @@ body {
 }
 
 .login-box a:hover {
-    color: #6315a3;
+    color: var(--link-text-color);
 }
