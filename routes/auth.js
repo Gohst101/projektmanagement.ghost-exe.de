@@ -12,7 +12,7 @@ app.post("/auth/register", async (req, res) => {
     if (password !== password_confirm) {
         console.log("[AUTH] ⚠️ Password does not match.")
         res.render('public/register', {
-            error: "Die Passwörter stimmen nicht überein."
+            error: "Die Passwörter stimmen nicht überein"
         })
         return
     }
@@ -24,7 +24,7 @@ app.post("/auth/register", async (req, res) => {
         console.log("[AUTH] ⚠️ Email is already in use.")
         console.log(data)
         res.render('public/register', {
-            error: "Email ist schon vergeben."
+            error: "Email ist schon vergeben"
         })
         return
     }

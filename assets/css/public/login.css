@@ -112,6 +112,12 @@ body {
     background-color: var(--button-blue-hover-color);
 }
 
+/* Error Message */
+.error-section p {
+    color: var(--error-text-color);
+    font-size: 12px;
+    font-weight: 700;
+}
 
 /* Registrierungstext */
 .login-box p {
