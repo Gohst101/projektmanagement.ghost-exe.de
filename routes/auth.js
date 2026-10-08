@@ -40,15 +40,12 @@ app.post("/auth/register", async (req, res) => {
     // https://www.w3schools.com/sql/sql_insert.asp#:~:text=INSERT%20INTO%20Customers%20%28CustomerName%2C%20City%2C%20Country%29%20VALUES%20%28%27Cardinal%27%2C%20%27Stavanger%27%2C%20%27Norway%27%29%3B
     try {
         // VERBESSERN MIT FALLBACK DURCH ACCOUNT LÖSCHUNG UND ERROR MESSAGE
-        // Code erstellen
         const code = require('crypto').randomBytes(32).toString('hex')
-        // E-Mail senden
         await sendVerificationMail(email, username, code, baseURL)
         // Daten eintragen
         pool.query(`INSERT INTO users (username, email, password) VALUES ('${username}', '${email}', '${hashedPassword}')`)
         const data = await pool.query(`SELECT id FROM users WHERE email = ?`, [email])
         const userId = data[0][0].id
-        console.log(userId)
         await pool.query(`INSERT INTO email_verification (userId, code) VALUES ('${userId}', '${code}')`)
 
         res.render('public/register', {
@@ -57,7 +54,12 @@ app.post("/auth/register", async (req, res) => {
         })
     } catch(error) {
         console.log(error)
-        return
+        await pool.query("DELETE FROM users WHERE email = ?", [email])
+        
+        res.render('public/register', {
+            message: null,
+            error: "Etwas ist schief gelaufen"
+        })
     }
 })
 
