@@ -37,9 +37,13 @@
             </div>
         </form>
 
-        <div class="error-section">
+        <div class="message-section">
             <% if ( error !== null ) { %>
-                <p><%= error %></p>
+                <p class="error"><%= error %></p>
+            <% } %>
+
+            <% if ( message !== null ) { %>
+                <p class="message"><%= message %></p>
             <% } %>
         </div>
 

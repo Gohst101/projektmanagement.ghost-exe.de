@@ -72,8 +72,6 @@ app.use(privateRoutes)
 app.use(authRoutes)
 registerErrorHandlers(app)
 
-
-
 // Calling Start Server Function
 console.log(`[Startup Process] ⏳ Starting Website..`)
 startServer()
