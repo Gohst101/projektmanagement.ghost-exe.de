@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
 const pool = require("../database/connection/connection.js")
+const { sendVerificationMail } = require("../mail/mails.js")
 const bcrypt = require("bcryptjs")
 require('dotenv').config()
+const baseURL = process.env.BASE_URL
 
 // Register
 app.post("/auth/register", async (req, res) => {
@@ -12,6 +14,7 @@ app.post("/auth/register", async (req, res) => {
     if (password !== password_confirm) {
         console.log("[AUTH] ⚠️ Password does not match.")
         res.render('public/register', {
+            message: null,
             error: "Die Passwörter stimmen nicht überein"
         })
         return
@@ -24,6 +27,7 @@ app.post("/auth/register", async (req, res) => {
         console.log("[AUTH] ⚠️ Email is already in use.")
         console.log(data)
         res.render('public/register', {
+            message: null,
             error: "Email ist schon vergeben"
         })
         return
@@ -35,9 +39,20 @@ app.post("/auth/register", async (req, res) => {
     // Trage Daten in die Datenbank ein
     // https://www.w3schools.com/sql/sql_insert.asp#:~:text=INSERT%20INTO%20Customers%20%28CustomerName%2C%20City%2C%20Country%29%20VALUES%20%28%27Cardinal%27%2C%20%27Stavanger%27%2C%20%27Norway%27%29%3B
     try {
+        // VERBESSERN MIT FALLBACK DURCH ACCOUNT LÖSCHUNG UND ERROR MESSAGE
+        // Code erstellen
+        const code = require('crypto').randomBytes(32).toString('hex')
+        // E-Mail senden
+        await sendVerificationMail(email, username, code, baseURL)
+        // Daten eintragen
         pool.query(`INSERT INTO users (username, email, password) VALUES ('${username}', '${email}', '${hashedPassword}')`)
-        res.render('public/login', {
-            message: "Erfolgreich angemeldet",
+        const data = await pool.query(`SELECT id FROM users WHERE email = ?`, [email])
+        const userId = data[0][0].id
+        console.log(userId)
+        await pool.query(`INSERT INTO email_verification (userId, code) VALUES ('${userId}', '${code}')`)
+
+        res.render('public/register', {
+            message: "Wir haben Ihnen eine E-Mail zur Identitätsbestätigung gesendet.",
             error: null
         })
     } catch(error) {
@@ -55,11 +70,13 @@ app.post("/auth/login", async (req, res) => {
         const [data] = await pool.query("SELECT email FROM users WHERE email = ?", [email]) // Datenbankabfrage
         if(data.length === 0) { // Wenn null dann gibt es diese email nicht (keine daten)
             res.render('public/login', { // Rendere die Login Page
+                message: null,
                 error: "Falscher Login" // Gebe der Login page die Variable error mit folgendem Wert mit (Wir sagen nur Falscher Login da wir nicht sagen wollen ob es die email oder das passwort war was falsch war)
             })
         }
     } catch(error) {
         res.render('public/login', {
+            message: null,
             error: "Failed"
         })
         console.log("[ERROR] ❌ Failed at some point durring checking of email is in datebase: " + error)
@@ -92,6 +109,7 @@ app.post("/auth/login", async (req, res) => {
             return res.redirect("/dashboard") // Weiterleitung zum Dashboard
         } else {
             res.render('public/login', { // Rendere die Login Page
+                message: null,
                 error: "Falscher Login" // Gebe der Login page die Variable error mit folgendem Wert mit
             })
         }

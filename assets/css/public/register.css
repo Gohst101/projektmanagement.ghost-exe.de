@@ -97,10 +97,17 @@ body {
 }
 
 /* Error Message */
-.error-section p {
-    color: var(--error-text-color);
+.message-section {
     font-size: 12px;
     font-weight: 700;
+}
+
+.error {
+    color: var(--error-text-color);
+}
+
+.message {
+    color: var(--success-text-color);
 }
 
 /* Registrierungstext */

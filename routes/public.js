@@ -16,6 +16,7 @@ router.get('/homepage', async(req, res) => {
 // Register Page
 router.get('/register', (req, res) => {
   res.render('public/register', {
+    message: null,
     error: null
   })
 })
@@ -26,6 +27,7 @@ router.get('/login', (req, res) => {
     return res.redirect('/dashboard')
   }
   res.render('public/login', {
+    message: null,
     error: null
   })
 })
