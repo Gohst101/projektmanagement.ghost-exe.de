@@ -10,12 +10,86 @@
     <%- include('../partials/overlay') %>
 
 
-    <div>
-        <h1 class="project-planning-title"><%= project.title %></h1>
+    <div class="project-planning-title_Box">
+        <h1 class="project-planning-title"><%= project.title %>Test Projekt</h1>
 
     </div>
-    <div class="structureplan-action-bar">
-        <button class="structureplan-category-create-button"><img src="/icons/plus.svg" alt="Create Category">Neue Kategorie</button>
-    </div>
+        <!-- Strukturplan -->
+   <!-- Strukturplan -->
+    <main class="structureplan">
+
+        <div id="categories-container" class="categories-container">
+
+            <% if (project.categories && project.categories.length > 0) { %>
+
+                <% project.categories.forEach(category => { %>
+
+                    <div class="category">
+
+                        <!-- Kategorie -->
+                        <div class="category-box">
+
+                            <input
+                                type="text"
+                                class="category-title"
+                                value="<%= category.title %>"
+                            >
+
+                        </div>
+
+
+                        <!-- Plus -->
+                        <button
+                            class="add-subcategory"
+                            onclick="addSubcategory(this)"
+                        >
+                            +
+                        </button>
+
+
+                        <!-- Unterkategorien -->
+                        <div class="subcategories">
+
+                            <% if (category.subcategories) { %>
+
+                                <% category.subcategories.forEach(subcategory => { %>
+
+                                    <div class="subcategory-box">
+
+                                        <input
+                                            type="text"
+                                            value="<%= subcategory.title %>"
+                                        >
+
+                                    </div>
+
+                                <% }) %>
+
+                            <% } %>
+
+                        </div>
+
+                    </div>
+
+                <% }) %>
+
+            <% } %>
+
+        </div>
+
+    </main>
+
+
+    <!-- Neue Kategorie -->
+    <button
+        class="structureplan-category-create-button"
+        onclick="addCategory()"
+    >
+        <img src="/icons/plus.svg" alt="Neue Kategorie">
+        Neue Kategorie
+    </button>
+
+    
     
 </body>
+
