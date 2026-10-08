@@ -72,7 +72,7 @@ router.get('/structureplan/:id', requireAuth, async (req, res) => {
         userId: req.session.user.userId,
         username: req.session.user.username,
         email: req.session.user.email,
-        project: project,
+        project,
         projectId: projectId,
         currentPage: 'structureplan'
     })
