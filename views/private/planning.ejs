@@ -28,16 +28,17 @@
             <p>Vorgänger</p>
         </div>
         <% tasks.forEach(task => { %>
-            <div class="project-planning-process">
+            <div class="project-planning-process" draggable="true">
                 <p class="project-planning-process-number"><%= task.id %></p>
                 <p class="project-planning-process-name"><%= task.title %></p>
-                <p class="project-planning-process-days"><%= task.days %></p>
+                <p class="project-planning-process-duration"><%= task.days %></p>
                 <p class="project-planning-process-predecessor"><%= task.predecessor || 'Keine Vorgänger vorhanden.' %></p>
             </div>
         <% }) %>
-        <div class="project-planning-process-create">
+        <button type="button" class="project-planning-process-create">
             <img src="/icons/plus.svg" alt="Create Process">
             <p class="project-planning-process-create-button">Vorgang hinzufügen</p>
-        </div>
+        </button>
     </div>
+    <script src="/js/planning/planning.js"></script>
 </body>
