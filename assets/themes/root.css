@@ -8,6 +8,7 @@
     --logo-text-color: #1B5FFA;
     --error-text-color: #a10000;
     --success-text-color: #25a900;
+    --link-text-color: #6315a3;
 
     /* Wesite Farben */
     --main-background-color: #0B1220;
@@ -19,6 +20,7 @@
 
     /* Button */
     --button-blue-color: #1B5FFA;
+    --button-blue-hover-color: #1145ac;
 
     /* Box Stroke */
     --box-stroke-color: #4F5967;
