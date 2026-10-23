@@ -47,6 +47,7 @@ const redirects = require('./routes/redirects')
 const privateRoutes = require('./routes/private')
 const publicRoutes = require('./routes/public')
 const authRoutes = require('./routes/auth')
+const planningApi = require('./api/internal/planning')
 const { registerErrorHandlers } = require('./routes/error')
 
 // View Engine (EJS Templates)
@@ -70,6 +71,7 @@ app.use(redirects)
 app.use(publicRoutes)
 app.use(privateRoutes)
 app.use(authRoutes)
+app.use(planningApi)
 registerErrorHandlers(app)
 
 // Calling Start Server Function

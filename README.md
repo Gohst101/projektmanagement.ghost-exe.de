@@ -46,7 +46,7 @@ Führe diesen Befehl im Terminal aus\
 
 
 ### .env File einrichten
-Damit das Projekt vernünftig läuft solltest du aus dem Ordner die Datei.env_example zu .env umbenennen und die Schritte in der Datei befolgen.
+Damit das Projekt vernünftig läuft solltest du aus dem Ordner die Datei .env_example zu .env umbenennen und die Schritte in der Datei befolgen.
 
 
 
@@ -58,7 +58,7 @@ Das npm Projekt Initalisieren\
 `npm init -y`
 
 Die npm Packete Installieren\
-`npm install bcryptjs dotenv ejs express-session express fs mysql2 path pem`
+`npm install bcryptjs dotenv ejs express-session express fs mysql2 path pem nodemailer`
 
 Projekt Starten\
 `npm run dev`
