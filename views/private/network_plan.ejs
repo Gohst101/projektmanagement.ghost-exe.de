@@ -3,48 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekt Netzplan</title>
+    <title>Netzplan – <%= project.title %></title>
     <link rel="stylesheet" href="/css/private/network_plan.css">
 </head>
 <body>
     <%- include('../partials/overlay') %>
 
-    <div class="network-plan-map"> <!-- Gets loaded and automaticly generated -->
-        
-    </div>
-
-    <div class="network-plan-legend">
-        <div class="network-plan-legend-line-1">
-            <div class="network-plan-legend-item">
-                <div class="network-plan-legend-circle-process"></div>
-                <p class="network-plan-legend-name">Ablauf</p>
-            </div>
-            <div class="network-plan-legend-item">
-                <div class="network-plan-legend-circle-duration"></div>
-                <p class="network-plan-legend-name">Dauer</p>
-            </div>
-            <div class="network-plan-legend-item">
-                <div class="network-plan-legend-circle-forward-calculation"></div>
-                <p class="network-plan-legend-name">Vorwärtsrechnung</p>
-            </div>
-            <div class="network-plan-legend-item">
-                <div class="network-plan-legend-circle-buffer"></div>
-                <p class="network-plan-legend-name">Puffer</p>
-            </div>
+    <main class="network-plan-page" data-network-plan data-project-tasks="<%= JSON.stringify(project.tasks) %>">
+        <h1><%= project.title %> – Netzplan</h1>
+        <p class="network-plan-status" data-chart-status role="status" aria-live="polite"></p>
+        <div class="network-plan-map" data-network-canvas>
+            <svg class="network-plan-edges" aria-hidden="true"></svg>
+            <div class="network-plan-nodes"></div>
         </div>
-        <div class="network-plan-legend-line-2">
-            <div class="network-plan-legend-item">
-                <div class="network-plan-legend-circle-critical-path"></div>
-                <p class="network-plan-legend-name">Kritischer Pfad</p>
-            </div>
-            <div class="network-plan-legend-item">
-                <div class="network-plan-legend-circle-process-number"></div>
-                <p class="network-plan-legend-name">Ablauf Nr.</p>
-            </div>
-            <div class="network-plan-legend-item">
-                <div class="network-plan-legend-circle-reverse-calculation"></div>
-                <p class="network-plan-legend-name">Rückwärtsrechnung</p>
-            </div>
+        <div class="network-plan-legend">
+            <span><i class="legend-process"></i>Vorgang</span>
+            <span><i class="legend-critical"></i>Kritischer Pfad</span>
+            <span>FAZ / FEZ: frühester Anfang / frühestes Ende</span>
+            <span>SAZ / SEZ: spätester Anfang / spätestes Ende</span>
+            <span>Puffer: mögliche Verzögerung in Tagen</span>
         </div>
-    </div>
+    </main>
+    <script src="/js/project_chart_data.js" defer></script>
+    <script src="/js/network_plan.js" defer></script>
 </body>
+</html>

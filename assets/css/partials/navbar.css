@@ -1,5 +1,44 @@
 @import url('/themes/root.css');
 
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px clamp(16px, 5vw, 64px);
+    border-bottom: 1px solid var(--box-stroke-color);
+    background: var(--box-background-color);
+}
+
+.navbar-brand {
+    color: var(--main-text-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.navbar-links a {
+    color: var(--main-text-color);
+    text-decoration: none;
+}
+
+.navbar-links a:hover {
+    color: var(--link-text-color);
+}
+
+@media (max-width: 520px) {
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
 body {
   font-family: var(--font-family);
   color: var(--main-text-color);

@@ -19,9 +19,14 @@
 
             <div class="inputbox-password">       
                 <label for="password">Passwort</label>
-                <input type="password" id="password" name="password" placeholder="********" required>
+                <input type="password" id="password" name="password" placeholder="********" autocomplete="current-password" required>
+                <button type="button" data-toggle-password aria-pressed="false">Passwort anzeigen</button>
             </div>
         
+            <label class="remember-me">
+                <input type="checkbox" name="remember_me" value="true">
+                Angemeldet bleiben (7 Tage)
+            </label>
             <div class="submit-section">
                 <button type="submit">Anmelden</button>
             </div>
@@ -29,11 +34,16 @@
         
         <div class="error-section">
             <% if ( error !== null ) { %>
-                <p><%= error %></p>
+                <p role="alert"><%= error %></p>
+            <% } %>
+            <% if ( message !== null ) { %>
+                <p class="success-message" role="status"><%= message %></p>
             <% } %>
         </div>
 
         <p>Noch kein Konto? <a href="/register">Zum Registrieren</a></p>
+        <p><a href="/forgot-password">Passwort vergessen?</a></p>
     </div>
+    <script src="/js/public/login.js" defer></script>
 </body>
 </html>

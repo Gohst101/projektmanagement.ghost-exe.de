@@ -51,6 +51,12 @@ body {
     font-size: 0.9rem;
 }
 
+.planning-save-status {
+    min-height: 1.5em;
+    margin: 12px 0 0;
+    color: var(--sub-text-color);
+}
+
 /* Task list */
 .project-planning-processes {
     margin: 24px auto 0;
@@ -59,7 +65,7 @@ body {
 .project-planning-process-titles,
 .project-planning-process {
     display: grid;
-    grid-template-columns: 56px minmax(180px, 1fr) 84px minmax(80px, 0.45fr) 36px;
+    grid-template-columns: 56px minmax(180px, 1fr) 72px 100px 112px minmax(100px, 0.6fr) 36px;
     gap: 12px;
     align-items: center;
 }
@@ -113,6 +119,8 @@ body {
 
 .project-planning-process-name,
 .project-planning-process-days,
+.project-planning-process-workers,
+.project-planning-process-salary,
 .project-planning-process-predecessor {
     width: 100%;
     min-width: 0;
@@ -131,6 +139,8 @@ body {
 
 .project-planning-process-name:focus,
 .project-planning-process-days:focus,
+.project-planning-process-workers:focus,
+.project-planning-process-salary:focus,
 .project-planning-process-predecessor:focus {
     border-color: var(--main-text-color);
     background-color: var(--sub-box-background-color);
@@ -143,6 +153,8 @@ body {
 }
 
 .project-planning-process-days,
+.project-planning-process-workers,
+.project-planning-process-salary,
 .project-planning-process-predecessor {
     text-align: center;
 }
@@ -267,7 +279,7 @@ body {
 
     .project-planning-process-titles,
     .project-planning-process {
-        grid-template-columns: 36px minmax(140px, 1fr) 68px 76px 36px;
+        grid-template-columns: 36px minmax(140px, 1fr) 60px 84px 92px 88px 36px;
         gap: 8px;
         padding-right: 10px;
         padding-left: 10px;
@@ -279,6 +291,8 @@ body {
 
     .project-planning-process-name,
     .project-planning-process-days,
+    .project-planning-process-workers,
+    .project-planning-process-salary,
     .project-planning-process-predecessor {
         padding: 8px;
         font-size: 0.85rem;
@@ -292,7 +306,7 @@ body {
 
     .project-planning-process-titles,
     .project-planning-process {
-        grid-template-columns: 28px minmax(120px, 1fr) 56px 64px;
+        grid-template-columns: 28px minmax(120px, 1fr) 52px 72px 80px 76px 32px;
         gap: 6px;
     }
 
@@ -303,6 +317,8 @@ body {
 
     .project-planning-process-name,
     .project-planning-process-days,
+    .project-planning-process-workers,
+    .project-planning-process-salary,
     .project-planning-process-predecessor {
         padding: 7px 5px;
         font-size: 0.75rem;

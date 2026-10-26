@@ -1,60 +1,105 @@
 @import url('/themes/root.css');
 
-/* Main styles */
+* {
+    box-sizing: border-box;
+}
+
 body {
     min-height: 100vh;
-
-    background-color: var(--main-background-color);
-
-    font-family: Arial, sans-serif;
-    color: white;
+    margin: 0;
+    padding: 32px;
+    background: var(--main-background-color);
+    color: var(--main-text-color);
+    font-family: var(--font-family, system-ui, sans-serif);
 }
 
-/* Diagram divbox styles */
+.cost-chart-page {
+    display: grid;
+    gap: 18px;
+}
 
-.cost_chart_workers {
-    width: 80%;
-    max-width: auto;
-    margin: 0 auto;
+.cost-chart-page h1 {
+    margin: 0;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.chart-status,
+.cost-chart-formula {
+    margin: 0;
+    color: var(--sub-text-color);
+}
+
+.cost-chart-panel {
+    min-width: 0;
     padding: 20px;
-    align-items: right;
-
-    background-color: var(--box-background-color);
-
     border: 1px solid var(--box-stroke-color);
+    border-radius: 10px;
+    background: var(--box-background-color);
+}
+
+.cost-chart-panel h2 {
+    margin: 0 0 14px;
+    font-size: 1.15rem;
+}
+
+.cost-chart-rows {
+    display: grid;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.cost-chart-row {
+    display: grid;
+    grid-template-columns: minmax(120px, 220px) minmax(60px, 1fr) minmax(90px, auto);
+    align-items: center;
+    gap: 12px;
+}
+
+.cost-chart-label {
+    overflow-wrap: anywhere;
+}
+
+.cost-chart-track {
+    height: 18px;
+    overflow: hidden;
     border-radius: 9px;
+    background: var(--main-background-color);
 }
 
-.cost_chart{
-    width: 80%;
-    max-width: auto;
-    margin: 0 auto;
-    padding: 20px;
-    align-items: right;
-
-    background-color: var(--box-background-color);
-
-    border: 1px solid var(--box-stroke-color);
-    border-radius: 9px;
+.cost-chart-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: #2878d0;
 }
 
-/* Chart styles */
-.cost_chart_workers_c {
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
-    padding: 20px;
-    align-items: right;
-
-    background-color: var(--box-background-color);
+.cost-chart-value {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
 }
 
-.cost_chart_c {
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
-    padding: 20px;
-    align-items: right;
+.cost-chart-total {
+    margin: 20px 0 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-align: right;
+}
 
-    background-color: var(--box-background-color);
+@media (max-width: 560px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .cost-chart-row {
+        grid-template-columns: 1fr auto;
+    }
+
+    .cost-chart-track {
+        grid-row: 2;
+        grid-column: 1 / -1;
+    }
+
+    .cost-chart-value {
+        grid-column: 2;
+        grid-row: 1;
+    }
 }

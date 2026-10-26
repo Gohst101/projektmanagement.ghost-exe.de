@@ -9,35 +9,37 @@ const pool = require('./database/connection/connection.js')
 require('dotenv').config()
 
 // .env Variables
-const PORT = process.env.PORT
+const PORT = Number(process.env.PORT || 25590)
 const FORCE_DB = String(process.env.FORCE_DB).toLowerCase() === 'true'
-const SESSION_SECRET = process.env.SESSION_SECRET
-console.log(`[STARTUP] Starting Website on ${PORT}`)
-
-// Check database if needed
-if(FORCE_DB) {
-	console.log('[Startup Process] DB Check..')
-	pool.verifyDatabaseConnection()
-} else {
-	console.log('[Startup Process] Skip DB Check')
+const SESSION_SECRET = process.env.SESSION_SECRET || process.env.SESSION_KEY
+if (!SESSION_SECRET) {
+	throw new Error('SESSION_SECRET (or SESSION_KEY) must be set in the .env file.')
 }
-
-
+if (!Number.isInteger(PORT) || PORT < 1 || PORT > 65535) {
+	throw new Error('PORT must be a valid TCP port between 1 and 65535.')
+}
+console.log(`[STARTUP] Starting Website on ${PORT}`)
 
 // App Port
 // Der Port auf dem die Website vom Server aus erreichbar sein wird.
 const app = express()
+if (process.env.NODE_ENV === 'production') {
+	app.set('trust proxy', 1)
+}
 // parse application/json
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 // Express Session
 app.use(session({
-    secret: `${SESSION_SECRET}`,
+    secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
-        maxAge: 1000 * 60 * 60 * 24
+        maxAge: 1000 * 60 * 60 * 24,
+        httpOnly: true,
+        sameSite: 'lax',
+        secure: process.env.NODE_ENV === 'production'
     }
 }))
 
@@ -48,6 +50,8 @@ const privateRoutes = require('./routes/private')
 const publicRoutes = require('./routes/public')
 const authRoutes = require('./routes/auth')
 const planningApi = require('./api/internal/planning')
+const dashboardApi = require('./api/internal/dashboard')
+const structureplanApi = require('./api/internal/structureplan')
 const { registerErrorHandlers } = require('./routes/error')
 
 // View Engine (EJS Templates)
@@ -72,6 +76,8 @@ app.use(publicRoutes)
 app.use(privateRoutes)
 app.use(authRoutes)
 app.use(planningApi)
+app.use(dashboardApi)
+app.use(structureplanApi)
 registerErrorHandlers(app)
 
 // Calling Start Server Function
@@ -80,7 +86,18 @@ startServer()
 
 // Start Server Function
 function startServer() {
-	createCert()
+	if (FORCE_DB) {
+		console.log('[Startup Process] DB Check..')
+		pool.verifyDatabaseConnection()
+			.then(createCert)
+			.catch(error => {
+				console.error('[Startup Process] ❌ Database connection failed:', error)
+				process.exitCode = 1
+			})
+	} else {
+		console.log('[Startup Process] Skip DB Check')
+		createCert()
+	}
 
 	// SSL Certificate erstellung von Felix
 	const isLocal = process.platform === 'win32'

@@ -132,3 +132,40 @@ body {
 .login-box a:hover {
     color: var(--link-text-color);
 }
+ .login-box label.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+ .login-box label.remember-me input {
+    width: auto;
+     height: auto;
+     margin: 0;
+     padding: 0;
+ }
+
+ .login-box [data-toggle-password] {
+     width: auto;
+     height: auto;
+     margin-top: 6px;
+     border: 0;
+     padding: 0;
+     background: transparent;
+     color: inherit;
+     font-size: 0.85rem;
+     font-weight: 400;
+     text-decoration: underline;
+     cursor: pointer;
+ }
+
+.success-message {
+    color: #67d391;
+}
+
+@media (max-width: 420px) {
+    .login-box {
+        width: calc(100% - 24px);
+        margin-top: 40px;
+    }
+}

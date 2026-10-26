@@ -17,20 +17,25 @@
             <p class="project-planning-creation-date"><%= new Date(project.created_at).toLocaleDateString('de-DE') %></p>
         </div>
     </div>
+    <p class="planning-save-status" data-planning-status role="status" aria-live="polite"></p>
 
     <div class="project-planning-processes" data-project-id="<%= projectId %>">
         <div class="project-planning-process-titles">
             <p>Nr.</p>
             <p>Vorgangsname</p>
             <p>Tage</p>
+            <p>Mitarbeitende</p>
+            <p>Tagessatz (€)</p>
             <p>Vorgänger</p>
             <p aria-label="Aktionen"></p>
         </div>
         <% tasks.forEach(task => { %>
             <div class="project-planning-process" draggable="true">
                 <p class="project-planning-process-number"><%= task.id %></p>
-                <input class="project-planning-process-name" type="text" value="<%= task.title %>" aria-label="Name des Vorgangs <%= task.id %>" draggable="false">
+                <input class="project-planning-process-name" type="text" maxlength="120" value="<%= task.title %>" aria-label="Name des Vorgangs <%= task.id %>" draggable="false">
                 <input class="project-planning-process-days" type="number" min="0" step="1" value="<%= task.days %>" aria-label="Tage für <%= task.title %>" draggable="false">
+                <input class="project-planning-process-workers" type="number" min="0" step="1" value="<%= task.workers %>" aria-label="Mitarbeitende für <%= task.title %>" draggable="false">
+                <input class="project-planning-process-salary" type="number" min="0" step="0.01" value="<%= task.salary %>" aria-label="Tagessatz in Euro für <%= task.title %>" draggable="false">
                 <div class="project-planning-predecessor-select">
                     <button type="button" class="project-planning-process-predecessor" aria-haspopup="listbox" aria-expanded="false" draggable="false">
                         <%= task.predecessor || 'Keine Vorgänger vorhanden.' %>
