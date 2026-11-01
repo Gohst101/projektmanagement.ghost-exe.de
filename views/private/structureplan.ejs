@@ -3,17 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekt Strukturplan</title>
+    <title>Projektstrukturplan – <%= project.title %></title>
     <link rel="stylesheet" href="/css/private/structureplan.css">
 </head>
 <body>
     <%- include('../partials/overlay') %>
 
-    <div class="structureplan-map">
-
-    </div>
-
-    <div class="structureplan-action-bar">
-        <button class="structureplan-category-create-button"><img src="/icons/plus.svg" alt="Create Category">Neue Kategorie</button>
-    </div>
+    <main class="structureplan-page" data-structureplan data-project-id="<%= projectId %>">
+        <header class="project-planning-title_Box">
+            <h1 class="project-planning-title"><%= project.title %></h1>
+        </header>
+        <p class="structureplan-status" role="status" aria-live="polite"></p>
+        <div id="categories-container" class="categories-container">
+            <% project.categories.forEach((category, index) => { %>
+                <section class="category" data-category>
+                    <div class="category-box">
+                        <label class="visually-hidden" for="category-<%= index %>">Kategorie</label>
+                        <input id="category-<%= index %>" type="text" class="category-title" maxlength="120" value="<%= category.title %>">
+                        <button type="button" class="remove-item" data-remove-category aria-label="Kategorie löschen">×</button>
+                    </div>
+                    <button type="button" class="add-subcategory" data-add-subcategory aria-label="Unterkategorie hinzufügen">+</button>
+                    <div class="subcategories">
+                        <% category.subcategories.forEach((subcategory, subcategoryIndex) => { %>
+                            <div class="subcategory-box" data-subcategory>
+                                <label class="visually-hidden" for="subcategory-<%= index %>-<%= subcategoryIndex %>">Unterkategorie</label>
+                                <input id="subcategory-<%= index %>-<%= subcategoryIndex %>" type="text" maxlength="120" value="<%= subcategory.title %>">
+                                <button type="button" class="remove-item" data-remove-subcategory aria-label="Unterkategorie löschen">×</button>
+                            </div>
+                        <% }) %>
+                    </div>
+                </section>
+            <% }) %>
+        </div>
+        <button type="button" class="structureplan-category-create-button" data-add-category>
+            <img src="/icons/plus.svg" alt="">
+            Neue Kategorie
+        </button>
+    </main>
+    <script src="/js/structureplan.js" defer></script>
 </body>
+</html>

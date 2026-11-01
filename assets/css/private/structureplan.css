@@ -6,40 +6,314 @@
     padding: 0;
 }
 
-
-/* Gesamte Seite :D */
 body {
     min-height: 100vh;
 
     background-color: var(--main-background-color);
 
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        sans-serif;
+
     color: var(--main-text-color);
+
+    overflow-x: auto;
 }
 
 
-.structureplan-category-create-button {
-    position: absolute;
-    right: 13px;
-    bottom: 14px;
-    height: 70px;
-    width: 170px;
-    padding: 0 10px;
-    background: #151f2d;
-    color: #e5e7eb;
-    border: 1px solid #526071;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.2s;
+/* =========================
+   PROJEKT TITEL
+========================= */
+
+.project-planning-title_Box {
+    width: 300px;
+    min-height: 90px;
+
+    margin: 20px auto;
+
     display: flex;
+    justify-content: center;
     align-items: center;
+
+    background: #151f2d;
+
+    border: 2px solid #4f5967;
+    border-radius: 9px;
+
     text-align: center;
 }
 
+.project-planning-title {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.structureplan-status {
+    min-height: 1.5em;
+    text-align: center;
+    color: var(--sub-text-color);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+
+/* =========================
+   STRUKTURPLAN
+========================= */
+
+.structureplan {
+    width: 100%;
+    padding: 50px;
+}
+
+
+/* Alle Hauptkategorien */
+
+.categories-container {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 80px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================
+   KATEGORIE
+========================= */
+
+.category {
+    min-width: 230px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* Kategorie-Box */
+
+.category-box {
+    width: 230px;
+    min-height: 70px;
+
+    background: #151f2d;
+
+    border: 2px solid #526071;
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+    gap: 6px;
+}
+
+
+/* Eingabefeld */
+
+.category-title {
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: #e5e7eb;
+
+    font-size: 17px;
+
+    text-align: center;
+}
+
+.remove-item {
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    border-radius: 50%;
+    color: var(--main-text-color);
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.remove-item:hover {
+    background: #7f1d1d;
+}
+
+
+/* =========================
+   PLUS
+========================= */
+
+.add-subcategory {
+    width: 28px;
+    height: 28px;
+
+    margin: 12px 0;
+
+    border-radius: 50%;
+
+    border: 1px solid #526071;
+
+    background: #151f2d;
+
+    color: #e5e7eb;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s;
+}
+
+.add-subcategory:hover {
+    background: #1B5FFA;
+    border-color: #1B5FFA;
+}
+
+
+/* =========================
+   UNTERKATEGORIEN
+========================= */
+
+.subcategories {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+/* Unterkategorie */
+
+.subcategory-box {
+    width: 210px;
+    min-height: 60px;
+
+    background: #151f2d;
+
+    border: 2px solid #526071;
+
+    border-radius: 8px;
+
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+/* Unterkategorie Input */
+
+.subcategory-box input {
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: #e5e7eb;
+
+    font-size: 15px;
+
+    text-align: center;
+}
+
+@media (max-width: 560px) {
+    .structureplan {
+        padding: 24px 12px 100px;
+    }
+
+    .categories-container {
+        gap: 28px;
+    }
+
+    .category {
+        width: min(100%, 300px);
+    }
+
+    .category-box,
+    .subcategory-box {
+        width: 100%;
+    }
+
+    .structureplan-category-create-button {
+        right: 12px;
+        bottom: 12px;
+    }
+}
+
+/* =========================
+   NEUE KATEGORIE BUTTON
+========================= */
+
+.structureplan-category-create-button {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    height: 60px;
+    width: 180px;
+
+    padding: 0 15px;
+
+    background: #151f2d;
+
+    color: #e5e7eb;
+
+    border: 1px solid #526071;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
 .structureplan-category-create-button img {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
 
 .structureplan-category-create-button:hover {

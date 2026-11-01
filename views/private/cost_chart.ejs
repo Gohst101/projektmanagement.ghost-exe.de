@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekt Kostendiagramm</title>
+    <title>Kostendiagramm – <%= project.title %></title>
     <link rel="stylesheet" href="/css/private/cost_chart.css">
 </head>
 <body>
-    <%- include('../partials/overlay') %>    
+    <%- include('../partials/overlay') %>
 
-    <div class="cost-chart-workers">
-        <canvas id="cost-chart-workers" class="cost-chart-workers-c"></canvas>
-    </div>
-    <div class="cost-chart">
-        <canvas id="cost-chart" class="cost-chart-c"></canvas>
-    </div>
+    <main class="cost-chart-page" data-cost-chart data-project-tasks="<%= JSON.stringify(project.tasks) %>">
+        <h1><%= project.title %> – Kostenübersicht</h1>
+        <p class="chart-status" data-chart-status role="status" aria-live="polite"></p>
+        <section class="cost-chart-panel">
+            <h2>Personalbedarf</h2>
+            <div class="cost-chart-rows" data-workers-bars></div>
+        </section>
+        <section class="cost-chart-panel">
+            <h2>Geplante Personalkosten</h2>
+            <p class="cost-chart-formula">Mitarbeitende × Tage × Tagessatz pro Person und Tag</p>
+            <div class="cost-chart-rows" data-cost-bars></div>
+            <p class="cost-chart-total" data-cost-total></p>
+        </section>
+    </main>
+    <script src="/js/project_chart_data.js" defer></script>
+    <script src="/js/cost_chart.js" defer></script>
 </body>
+</html>

@@ -51,6 +51,12 @@ body {
     font-size: 0.9rem;
 }
 
+.planning-save-status {
+    min-height: 1.5em;
+    margin: 12px 0 0;
+    color: var(--sub-text-color);
+}
+
 /* Task list */
 .project-planning-processes {
     margin: 24px auto 0;
@@ -59,7 +65,7 @@ body {
 .project-planning-process-titles,
 .project-planning-process {
     display: grid;
-    grid-template-columns: 56px minmax(180px, 1fr) 84px minmax(80px, 0.45fr);
+    grid-template-columns: 56px minmax(180px, 1fr) 72px 100px 112px minmax(100px, 0.6fr) 36px;
     gap: 12px;
     align-items: center;
 }
@@ -94,6 +100,14 @@ body {
     cursor: grabbing;
 }
 
+.project-planning-process-placeholder {
+    margin-top: 10px;
+    border: 2px dashed var(--main-text-color);
+    border-radius: 9px;
+    background-color: var(--sub-box-background-color);
+    opacity: 0.7;
+}
+
 .project-planning-process.drag-over {
     border-color: var(--main-text-color);
     box-shadow: 0 0 0 2px var(--sub-box-background-color);
@@ -105,6 +119,8 @@ body {
 
 .project-planning-process-name,
 .project-planning-process-days,
+.project-planning-process-workers,
+.project-planning-process-salary,
 .project-planning-process-predecessor {
     width: 100%;
     min-width: 0;
@@ -116,12 +132,15 @@ body {
     color: var(--main-text-color);
     background-color: transparent;
     font: inherit;
+    appearance: none;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .project-planning-process-name:focus,
 .project-planning-process-days:focus,
+.project-planning-process-workers:focus,
+.project-planning-process-salary:focus,
 .project-planning-process-predecessor:focus {
     border-color: var(--main-text-color);
     background-color: var(--sub-box-background-color);
@@ -134,6 +153,8 @@ body {
 }
 
 .project-planning-process-days,
+.project-planning-process-workers,
+.project-planning-process-salary,
 .project-planning-process-predecessor {
     text-align: center;
 }
@@ -220,6 +241,27 @@ body {
     filter: brightness(0) invert(1);
 }
 
+.project-planning-process-delete {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    padding: 6px;
+    border: 0;
+    border-radius: 6px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.project-planning-process-delete:hover {
+    background-color: var(--sub-box-background-color);
+}
+
+.project-planning-process-delete img {
+    width: 18px;
+    height: 18px;
+}
+
 .project-planning-process-create-button {
     margin: 0;
     font-size: 1rem;
@@ -237,7 +279,7 @@ body {
 
     .project-planning-process-titles,
     .project-planning-process {
-        grid-template-columns: 36px minmax(140px, 1fr) 68px 76px;
+        grid-template-columns: 36px minmax(140px, 1fr) 60px 84px 92px 88px 36px;
         gap: 8px;
         padding-right: 10px;
         padding-left: 10px;
@@ -249,6 +291,8 @@ body {
 
     .project-planning-process-name,
     .project-planning-process-days,
+    .project-planning-process-workers,
+    .project-planning-process-salary,
     .project-planning-process-predecessor {
         padding: 8px;
         font-size: 0.85rem;
@@ -262,7 +306,7 @@ body {
 
     .project-planning-process-titles,
     .project-planning-process {
-        grid-template-columns: 28px minmax(120px, 1fr) 56px 64px;
+        grid-template-columns: 28px minmax(120px, 1fr) 52px 72px 80px 76px 32px;
         gap: 6px;
     }
 
@@ -273,6 +317,8 @@ body {
 
     .project-planning-process-name,
     .project-planning-process-days,
+    .project-planning-process-workers,
+    .project-planning-process-salary,
     .project-planning-process-predecessor {
         padding: 7px 5px;
         font-size: 0.75rem;

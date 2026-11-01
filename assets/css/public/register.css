@@ -1,3 +1,5 @@
+@import url('/themes/root.css');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -97,10 +99,17 @@ body {
 }
 
 /* Error Message */
-.error-section p {
-    color: var(--error-text-color);
+.message-section {
     font-size: 12px;
     font-weight: 700;
+}
+
+.error {
+    color: var(--error-text-color);
+}
+
+.message {
+    color: var(--success-text-color);
 }
 
 /* Registrierungstext */
@@ -117,4 +126,15 @@ body {
 
 .register-box a:hover {
     color: var(--link-text-color);
+}
+
+.form-validation-message {
+    color: var(--error-text-color);
+}
+
+@media (max-width: 420px) {
+    .register-box {
+        width: calc(100% - 24px);
+        margin-top: 40px;
+    }
 }

@@ -1,21 +1,15 @@
+const { parseProjectData } = require('./parseProjectData.js')
+
+// Keep the existing task-only API while sharing tolerant legacy-data parsing.
 function parseProjectTasks(tasksJson) {
-    try {
-        const parsedTasks = JSON.parse(tasksJson || '{}').tasks
-
-        if (!Array.isArray(parsedTasks)) {
-            return []
-        }
-
-        return parsedTasks.map(task => ({
-            id: task.position ?? task.id ?? '',
-            title: task.name ?? task.title ?? '',
-            days: task.days ?? 0,
-            predecessor: Array.isArray(task.predecessor) ? task.predecessor.join(', ') : task.predecessor || ''
-        }))
-    } catch (error) {
-        console.error('Invalid project task data:', error)
-        return []
-    }
+    return parseProjectData(tasksJson).tasks.map(task => ({
+        id: task.id,
+        title: task.title,
+        days: task.days,
+        workers: task.workers,
+        salary: task.salary,
+        predecessor: task.predecessor.join(', ')
+    }))
 }
 
 module.exports = { parseProjectTasks }

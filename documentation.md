@@ -1,83 +1,43 @@
-ToDo:
-Dashboard
-- Erstellen von Projekten => Name*
-- Löschen / Löschen Bestätigen um Projekt zu entfernen
-- Internal API für die oberen Punkte
+# Projektdaten
 
+Die MySQL-Tabellen und Fremdschlüssel sind in `database/schema.sql` definiert.
 
-Vorplanung
-- Vorplanung CSS überprüfen
-- HTML und Felder für Form aufbereiten
-- JavaScript zur erstellung neuer und entfernen der HTML Boxen
-- Speicher Internal API
+## Projektstruktur
 
+Projekte speichern Vorgänge und Strukturplan gemeinsam in der JSON-Spalte `projects.tasks`, damit beide Bearbeitungsseiten unabhängig voneinander speichern können:
 
-API Routes:
-
-Register:
-/auth/register
-
-Login:
-/auth/login
-
-Internal Save:
-/api/planning/save
-
-
-
-Database:
-- users
--- id
--- username
--- email
--- password
--- email_verified (BOOLEN)
--- created_at
--- updated_at
-
-- password_resets
--- id
--- userId
--- code
--- created_at
-
-- email_verification
--- id
--- userId
--- code
--- created_at
-
-- projects
--- id
--- userId
--- title
--- description
--- tasks (JSON)
--- created_at
--- updated_at
-
-
-
-Tasks JSON:
+```json
 {
-    "tasks": [
-        {
-            "name": "Kachel 1",
-            "position": "1",
-            "days": 2,
-            "predecessor": []
-        },
-        {
-            "name": "Kachel 2",
-            "position": "2",
-            "days": 3,
-            "predecessor": ["1"]
-        },
-        {
-            "name": "Kachel 3",
-            "position": "3",
-            "days": 1,
-            "predecessor": ["1", "2"]
-        }
-    ]
+  "tasks": [
+    {
+      "position": 1,
+      "name": "Planung",
+      "days": 2,
+      "workers": 2,
+      "salary": 25,
+      "predecessor": []
+    }
+  ],
+  "categories": [
+    {
+      "title": "Vorbereitung",
+      "subcategories": [
+        { "title": "Material" }
+      ]
+    }
+  ]
 }
+```
+
+`salary` ist der Tagessatz in Euro pro Person. Die Kostenseite berechnet die Kosten je Vorgang als `workers × days × salary`.
+
+## Endpunkte
+
+- `POST /auth/register` – Registrierung
+- `POST /api/project/create` – Projekt erstellen
+- `POST /api/project/update` – Projekttitel und Beschreibung ändern
+- `POST /api/project/delete` – eigenes Projekt löschen
+- `POST /api/planning/save` – Vorgänge und Abhängigkeiten speichern
+- `POST /api/structureplan/save` – Kategorien und Unterkategorien speichern
+
+Alle Projekt-Endpunkte erfordern eine angemeldete Sitzung und prüfen den Besitz des Projekts.
