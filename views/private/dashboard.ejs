@@ -13,20 +13,46 @@
         <h1 class="welcome-title">Willkommen zurück <%= username %>!</h1>
     </div>
 
-    <div class="projects">
-        <div class="project-create-box">
-            <img src="/icons/plus.svg" alt="Create Project">
+    <main class="dashboard" data-project-dashboard>
+        <p class="dashboard-message" role="status" aria-live="polite"></p>
+        <div class="projects">
+            <button class="project-create-box" type="button" data-create-project>
+                <img src="/icons/plus.svg" alt="">
+                <span>Neues Projekt</span>
+            </button>
+
+            <% projects.forEach(project => { %>
+                <article class="project-box" data-project-card data-project-id="<%= project.id %>">
+                    <a class="project-card-link" href="/planning/<%= project.id %>">
+                        <h2 class="project-title"><%= project.title %></h2>
+                        <p class="project-description"><%= project.description || 'Keine Beschreibung vorhanden.' %></p>
+                        <div class="project-stats">
+                            <p class="project-processes"><%= project.tasks.length %> Vorgänge</p>
+                            <p class="project-creation-date"><%= new Date(project.created_at).toLocaleDateString('de-DE') %></p>
+                        </div>
+                    </a>
+                    <div class="project-actions">
+                        <button type="button" data-edit-project>Projekt bearbeiten</button>
+                        <button type="button" data-delete-project>Projekt löschen</button>
+                    </div>
+                </article>
+            <% }) %>
         </div>
 
-        <% projects.forEach(project => { %>
-            <a class="project-box" href="/planning/<%= project.id %>">
-                <h1 class="project-title"><%= project.title %></h1>
-                <p class="project-description"><%= project.description || 'Keine Beschreibung vorhanden.' %></p>
-                <div class="project-stats">
-                    <p class="project-processes"><%= project.tasks.length %> Vorgänge</p>
-                    <p class="project-creation-date"><%= new Date(project.created_at).toLocaleDateString('de-DE') %></p>
+        <dialog class="project-dialog" data-project-dialog>
+            <form class="project-form" data-project-form>
+                <h2 data-dialog-title>Neues Projekt erstellen</h2>
+                <label for="project-title">Projektname</label>
+                <input id="project-title" name="title" type="text" maxlength="120" required>
+                <label for="project-description">Beschreibung</label>
+                <textarea id="project-description" name="description" maxlength="2000" rows="4"></textarea>
+                <p class="project-dialog-error" role="alert"></p>
+                <div class="project-dialog-actions">
+                    <button type="button" data-close-dialog>Abbrechen</button>
+                    <button type="submit">Speichern</button>
                 </div>
-            </a>
-        <% }) %>
-    </div>
+            </form>
+        </dialog>
+    </main>
+    <script src="/js/dashboard.js" defer></script>
 </body>

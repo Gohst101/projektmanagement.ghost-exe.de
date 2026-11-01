@@ -3,56 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekt Diagramm</title>
+    <title>Balkendiagramm – <%= project.title %></title>
     <link rel="stylesheet" href="/css/private/bar_chart.css">
 </head>
 <body>
     <%- include('../partials/overlay') %>
 
-    <div class="bar-chart">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nr.</th>
-                    <th>Vorgangsname</th>
-                    <th>Dauer</th>
-                    <th>Vorgänger</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <!-- Duration will be generated automaticly later -->
-                </tr>
-            </thead>
-            <tbody class="bar-chart-processes"> <!-- Table rows will be generated automaticly later => Needs a way to display one box with full background color to visualise the days -->
-                <tr class="bar-chart-process">
-                    <td class="bar-chart-process-number">1</td>
-                    <td class="bar-chart-process-title">Planen des Autos</td>
-                    <td class="bar-chart-process-duration">3</td>
-                    <td class="bar-chart-process-predecessor">/</td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                </tr>
-                <tr class="bar-chart-process">
-                    <td class="bar-chart-process-number">2</td>
-                    <td class="bar-chart-process-title">Materiealien besorgen</td>
-                    <td class="bar-chart-process-duration">2</td>
-                    <td class="bar-chart-process-predecessor">1</td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                    <td class="bar-chart-process-duration-feld"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <main class="bar-chart-page">
+        <h1><%= project.title %> – Zeitplan</h1>
+        <p class="chart-status" data-chart-status role="status" aria-live="polite"></p>
+        <div class="bar-chart" data-bar-chart data-project-tasks="<%= JSON.stringify(project.tasks) %>">
+            <table>
+                <caption>Vorgänge nach frühestem Starttag und Dauer</caption>
+                <thead></thead>
+                <tbody class="bar-chart-processes"></tbody>
+            </table>
+        </div>
+    </main>
+    <script src="/js/project_chart_data.js" defer></script>
+    <script src="/js/bar_chart.js" defer></script>
 </body>
+</html>

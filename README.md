@@ -1,66 +1,58 @@
 # Projektmanagement
-Ein Projekt von der BFI25 für andere welche eigene Projekte machen wollen, aber nicht wissen wie sie vorgehen sollen. 
 
+Eine Webanwendung zur Planung von Projekten mit Vorgängen, Projektstrukturplan, Zeitplan, Netzplan und Kostenübersicht.
 
-# Installations Guide
-Hier ist der vollständige Installations Guide für das Projekt.
+## Voraussetzungen
 
-### Was brauchen wir?
-**Code Editor**
-Im Besten Fall nutzen wir hierfür Visual Studio Code, weil es auch damit Entwickelt wurde.
-Download: https://code.visualstudio.com/Download
-1. Lade dir deinen Installer herunter z.B. Windows und führe die Datei aus.
-2. 
+- Node.js 20 oder neuer
+- MySQL 8 oder kompatibel
+- Ein SMTP-Konto zum Versenden der E-Mail-Bestätigung
+- Für den lokalen HTTPS-Start unter Windows: Zertifikatdateien unter `C:\SSL\localhost-key.pem` und `C:\SSL\localhost.pem`
 
-**NodeJS**\
-Download: https://nodejs.org/en/download
-1. Lade dir deinen Installer herunter z.B. Windows Installer (.msi) und führe die Datei aus.
-2. 
+## Installation
 
-Zum Testen im CMD / Terminal `node -v` ausführen.
+1. Repository klonen und in den Projektordner wechseln:
 
-**OpenSSL**\
-Download: https://slproweb.com/download/Win64OpenSSL-4_0_2.exe
-1. Lade dir den Installer herunter und führe ihn aus.
-2. Öffne das CMD und setze OpenSSL als System Variable: `setx PATH "%PATH%;C:\Program Files\OpenSSL-Win64\bin"`
-3. CMD einmal schließen und wieder öffnen.
-4. In dem C: Hauptordner einen Ordner mit dem Namen `SSL` erstellen.
-5. Im CMD dann in `C:\SSL` reingehen mit : `cd C:/SSL`.
-6. Dann im CMD in dem Path: `C:\SSL` den Befehl nutzen um ein Certificat zu erstellen: `openssl req -x509 -newkey rsa:2048 -nodes -keyout localhost-key.pem -out localhost.pem -days 365 -subj "/CN=localhost"`
+   ```powershell
+   git clone https://github.com/Gohst101/projektmanagment.ghost-exe.de
+   cd projektmanagment.ghost-exe.de
+   ```
 
-Zum Testen im CMD / Terminal `openssl -v`
+2. Abhängigkeiten installieren:
 
-**Git**\
-Download: https://git-scm.com/install/windows
-1. Lade dir deinen Installer herunter z.B. Git for Windows/x64 Setup und führe die Datei aus. 
-2. 
+   ```powershell
+   npm install
+   ```
 
-Zum Testen im CMD / Terminal `git -v` ausführen.
+3. `.env_example` nach `.env` kopieren und Datenbank-, Sitzungs-, Mail- und Basis-URL-Werte eintragen. `SESSION_SECRET` muss ein zufälliger geheimer Wert sein; erzeugen kannst du ihn zum Beispiel mit:
 
+   ```powershell
+   node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+   ```
 
-### GitHub Projekt Clonen
-Öffne in Visual Studio Code durch die Option oben Links durch den File / Datei Knopf und dann auf Open Folder / Ordner Öffnen um nun einen Ordner oder den Desktop in Visual Studio Code zu öffnen. Dort wird später der Projektordner hinkopiert aus dem GitHub. Anderen falls kann man auch manuell die .zip Datei aus dem GitHub Projekt herunterladen und entpacken und diese dann mit Visual Studio Code öffnen, jedoch werden wir das mit dem Herunterladen der .zip nicht hier beschreiben.
+4. Eine MySQL-Datenbank anlegen und die Tabellen aus [`database/schema.sql`](./database/schema.sql) in dieser Datenbank ausführen.
 
-Führe diesen Befehl im Terminal aus\
-`git clone https://github.com/Gohst101/projektmanagment.ghost-exe.de`
+5. Unter Windows die lokalen HTTPS-Zertifikate erzeugen und unter `C:\SSL` ablegen. Für andere Plattformen erzeugt das Projekt beim Start ein selbstsigniertes Zertifikat.
 
+6. Anwendung starten und im Browser öffnen:
 
-### .env File einrichten
-Damit das Projekt vernünftig läuft solltest du aus dem Ordner die Datei .env_example zu .env umbenennen und die Schritte in der Datei befolgen.
+   ```powershell
+   npm run dev
+   ```
 
+   Die lokale Adresse wird beim Start ausgegeben (standardmäßig `https://localhost:25590`). Beim selbstsignierten lokalen Zertifikat muss der Browser die Sicherheitsausnahme einmal bestätigen.
 
+## Funktionen
 
-### Projekt Initalisieren
-Wenn wir nun das Projekt geklont haben müssen wir sicherstellen das wir nochmal in Visual Studio Code einen Ordner öffnen und dann in den neu erstellten Projekt Ordner hineingehen und Ordner öffnen klicken.
+- Benutzerregistrierung mit E-Mail-Bestätigung, Anmeldung und Passwort-Zurücksetzung
+- Projekte erstellen, bearbeiten und löschen
+- Vorgänge und Vorgänger in der Vorplanung bearbeiten und automatisch speichern
+- Projektstrukturplan mit Kategorien und Unterkategorien
+- Balkenplan und Netzplan mit berechneten Abhängigkeiten und kritischem Pfad
+- Personalkosten: Mitarbeitende × Tage × Tagessatz pro Person und Tag
 
-**Dort müssen wir dann folgende Befehle im Terminal eingeben:**\
-Das npm Projekt Initalisieren\
-`npm init -y`
+## Tests
 
-Die npm Packete Installieren\
-`npm install bcryptjs dotenv ejs express-session express fs mysql2 path pem nodemailer`
-
-Projekt Starten\
-`npm run dev`
-
-Nun sollte das Projekt unter: https://localhost:deinPort erreichbar sein.
+```powershell
+npm test
+```

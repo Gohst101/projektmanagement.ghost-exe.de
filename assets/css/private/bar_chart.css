@@ -1,135 +1,117 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+@import url('/themes/root.css');
+
+* {
+    box-sizing: border-box;
 }
 
-body{
-    font-family:'Syne',sans-serif;
-    background:#1c1f26;
-    color:white;
-    padding:40px;
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px;
+    background: var(--main-background-color);
+    color: var(--main-text-color);
+    font-family: var(--font-family, system-ui, sans-serif);
 }
 
-/* Container für die Balken */
-
-.bar-chart{
-    background:#202530;
-    border:2px solid #2389ff;
-    border-radius:10px;
-    padding:15px;
-    overflow:auto;
-    box-shadow:0 0 15px rgba(0,0,0,.4);
+.bar-chart-page {
+    max-width: 100%;
 }
 
-/* Tabelle */
-
-table{
-    width:max-content;
-    min-width:100%;
-    border-collapse:collapse;
-    table-layout:fixed;
+.bar-chart-page h1 {
+    margin: 0 0 12px;
+    font-size: clamp(1.4rem, 3vw, 2rem);
 }
 
-thead{                           /* Tabellenkopf also <thead> */
-    background:#18202d;
-    position:sticky;            /* Tabellenkopf bleibt beim scrollen sichtbar oder hängen (wie ich wenn ich verscuhe zu lernen) */
-    top:0;
-    z-index:10;
+.chart-status {
+    min-height: 1.5em;
+    color: var(--sub-text-color);
 }
 
-th{
-    color:white;
-    font-weight:600;
-    font-size:14px;
-    padding:12px 10px;
-    border:1px solid #2c3545;
-    text-align:center;
+.bar-chart {
+    overflow: auto;
+    max-height: calc(100vh - 220px);
+    border: 1px solid var(--box-stroke-color);
+    border-radius: 10px;
+    background: var(--box-background-color);
 }
 
-td{
-    height:45px;
-    border:1px solid #2c3545;
-    text-align:center;
-    font-size:14px;
-    color:#ddd;
-    position:relative;
+table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
-/* Linke Spalten */
-
-.bar-chart-process-number{
-    width:60px;
-    background:#202530;
+caption {
+    padding: 14px;
+    color: var(--sub-text-color);
+    text-align: left;
 }
 
-.bar-chart-process-title{
-    width:240px;
-    text-align:left;
-    padding-left:15px;
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
-.bar-chart-process-duration{
-    width:80px;
+th,
+td {
+    height: 42px;
+    padding: 8px;
+    border-right: 1px solid var(--box-stroke-color);
+    border-bottom: 1px solid var(--box-stroke-color);
+    text-align: center;
 }
 
-.bar-chart-process-predecessor{
-    width:90px;
+th {
+    min-width: 52px;
+    background: var(--sub-box-background-color);
+    font-size: 0.85rem;
 }
 
-/* Tage keine ahnung wie er es meint, aber es soll anscheinend automatisch generiert werden hilfe*/
-
-.bar-chart-process-duration-feld{
-    width:65px;
-    background:#1d222d;
+th:nth-child(1) {
+    min-width: 56px;
 }
 
-
-
-tbody tr:hover td{
-    background:#252c39;
+th:nth-child(2) {
+    min-width: 220px;
 }
 
-/* Balken keine ahnung fr fr  */
-
-.bar{
-    position:absolute;
-    left:3px;
-    top:7px;
-    width:calc(100% - 6px);
-    height:30px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#1f80ff;
-    border-radius:6px;
-    color:white;
-    font-size:13px;
-    font-weight:600;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.15),
-        0 2px 8px rgba(0,0,0,.35);
+th:nth-child(3),
+th:nth-child(4) {
+    min-width: 100px;
 }
 
-/* Scrollbar (WebKit) online nachgeschaut  */
-
-::-webkit-scrollbar{
-    height:10px;
-    width:10px;
+td {
+    min-width: 52px;
 }
 
-::-webkit-scrollbar-track{
-    background:#1b2028;
+td.bar-chart-process-title {
+    text-align: left;
 }
 
-::-webkit-scrollbar-thumb{
-    background:#3b4d66;
-    border-radius:20px;
+td.bar-chart-task-day {
+    border-right-color: transparent;
+    border-left-color: transparent;
+    background: #2878d0;
 }
 
-::-webkit-scrollbar-thumb:hover{
-    background:#5b78a0;
+td.bar-chart-task-start {
+    border-left-color: var(--box-stroke-color);
+    border-radius: 7px 0 0 7px;
+}
+
+td.bar-chart-task-end {
+    border-right-color: var(--box-stroke-color);
+    border-radius: 0 7px 7px 0;
+}
+
+td.bar-chart-task-single {
+    border-radius: 7px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+    }
 }

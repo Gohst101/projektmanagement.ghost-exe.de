@@ -3,64 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projektmanagement</title>
+    <meta name="description" content="Plane Projekte, Vorgänge, Zeitpläne und Kosten an einem Ort.">
+    <title>Projektplanung</title>
     <link rel="stylesheet" href="/css/public/homepage.css">
 </head>
 <body>
     <%- include('../partials/navbar') %>
 
-    <div class="Content_Project_text">
-        <h1>Project Planing</h1>
-        <p>Welcome to the project planning tool. Here you can manage your tasks and timelines effectively by using our project planning features.</p>
-    </div>
+    <main>
+        <section class="homepage-hero">
+            <p class="homepage-eyebrow">Projektplanung einfach gemacht</p>
+            <h1>Behalte dein Projekt im Blick – vom ersten Vorgang bis zum Zeitplan.</h1>
+            <p>Erstelle eine Vorplanung und erhalte daraus einen Balkenplan, Netzplan und eine Kostenübersicht.</p>
+            <div class="homepage-actions">
+                <a class="homepage-button primary" href="/register">Kostenloses Konto erstellen</a>
+                <a class="homepage-button secondary" href="/login">Anmelden</a>
+            </div>
+        </section>
 
-    <div class="Content_Project_Buttons">
-        <button class="Button_Add_Task">Add Task</button>
-        <button class="Button_View_Tasks">View Tasks</button>
-    </div>
+        <section class="homepage-features" aria-labelledby="features-title">
+            <h2 id="features-title">Alles Wichtige für deine Planung</h2>
+            <div class="homepage-feature-grid">
+                <article>
+                    <h3>Vorgänge planen</h3>
+                    <p>Lege Dauer und Vorgänger fest und ordne Arbeitsschritte per Drag-and-drop.</p>
+                </article>
+                <article>
+                    <h3>Projektstruktur erstellen</h3>
+                    <p>Gliedere dein Vorhaben in übersichtliche Kategorien und Unterkategorien.</p>
+                </article>
+                <article>
+                    <h3>Zeit und Kosten verstehen</h3>
+                    <p>Sieh früheste Termine, kritische Vorgänge und geplante Personalkosten auf einen Blick.</p>
+                </article>
+            </div>
+        </section>
+    </main>
 
-    <div class="Content_Project_Slider">
-        <h2>Project Timeline</h2>
-        <div class="Slider_Container">
-            <!-- Slider content will go here -->
-        </div>
-    </div>
-
-    <div class="Content_Project_Info">
-        <h2>Project Information</h2>
-        <p>This is a simple project planning tool to help you manage your tasks and timelines.</p>
-    </div>
-
-    <h1>What can this tool do?</h1>
-    
-    <div class="Content_Project_Features">
-        <div class="Function_box">
-            <h3>Task Management</h3>
-            <p>Organize and prioritize your tasks effectively.</p>
-        </div>
-        <div class="Function_box">
-            <h3>Timeline Visualization</h3>
-            <p>Visualize your project timeline with ease.</p>
-        </div>
-        <div class="Function_box">
-            <h3>Collaboration</h3>
-            <p>Work together with your team seamlessly.</p>
-        </div>
-        <div class="Function_box">
-            <h3>Task Management</h3>
-            <p>Organize and prioritize your tasks effectively.</p>
-        </div>
-        <div class="Function_box">
-            <h3>Timeline Visualization</h3>
-            <p>Visualize your project timeline with ease.</p>
-        </div>
-        <div class="Function_box">
-            <h3>Collaboration</h3>
-            <p>Work together with your team seamlessly.</p>
-        </div>        
-    </div>
-    
-    
     <%- include('../partials/footer') %>
 </body>
 </html>
